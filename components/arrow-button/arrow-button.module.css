@@ -1,0 +1,23 @@
+@keyframes scale {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(.9);
+    }
+}
+.svg-button {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    cursor: pointer;
+    transition: all .5s;
+}
+.inner.active {
+    animation: scale .5s;
+}
+.outer.active {
+    animation: scale .5s .075s;
+}
