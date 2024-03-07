@@ -1,0 +1,33 @@
+.textarea-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+.textarea-label {
+    color: white;
+}
+.textarea, .textarea {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 12px;
+    color: white;
+    border-bottom: 1px solid var(--grey);
+    font-size: 18px;
+    transition: all .1s;
+}
+.textarea {
+    min-height: 200px;
+}
+.textarea::placeholder, .textarea::placeholder {
+    color: rgb(96, 96, 96);
+}
+.textarea:focus, .textarea:focus {
+    outline: none;
+    background: var(--focus);
+    border-bottom: 1px solid var(--yellow);
+}
+.valued {
+    border-bottom: 1px solid var(--yellow);
+}

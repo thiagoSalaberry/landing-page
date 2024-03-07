@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import styles from "./arrow-button.module.css"
-export default function ArrowButton({color, size, onClick}: {color:string, size:number, onClick: ()=>void}) {
+export default function ArrowButton({color, size, invert, onClick}: {color:string, size:number, invert?:boolean, onClick: ()=>void}) {
     const [active, setActive] = useState<boolean>(false);
     const handleOnClick = () => {
         setActive(true);
@@ -8,7 +8,7 @@ export default function ArrowButton({color, size, onClick}: {color:string, size:
         onClick();
     };
     return (
-        <button onClick={handleOnClick} disabled={active} className={styles["svg-button"]}>
+        <button onClick={handleOnClick} disabled={active} className={`${styles["svg-button"]} ${invert ? styles["invert"] : ""}`}>
             <svg width={size} height={size * 1.48} viewBox="0 0 71 104" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="arrow" clipPath="url(#clip0_15_19)">
                     <path id="inner" className={`${styles["inner"]} ${active ? styles["active"] : ""}`}

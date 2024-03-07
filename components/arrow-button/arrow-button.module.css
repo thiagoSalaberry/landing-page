@@ -14,6 +14,11 @@
     overflow: visible;
     cursor: pointer;
     transition: all .5s;
+    display: flex;
+    align-items: center;
+}
+.svg-button.invert {
+    transform: scaleX(-1);
 }
 .inner.active {
     animation: scale .5s;

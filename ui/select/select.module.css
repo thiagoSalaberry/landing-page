@@ -1,0 +1,124 @@
+.select-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+.select-label {
+    color: white;
+}
+.select, .textarea {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 12px;
+    color: white;
+    border-bottom: 1px solid var(--grey);
+    font-size: 18px;
+    transition: all .1s;
+}
+.textarea {
+    min-height: 200px;
+}
+.select::placeholder, .textarea::placeholder {
+    color: rgb(96, 96, 96);
+}
+.select:focus, .textarea:focus {
+    outline: none;
+    background: var(--focus);
+    border-bottom: 1px solid var(--yellow);
+}
+.option {
+    color: black;
+    background-color: transparent;
+}
+.valued {
+    border-bottom: 1px solid var(--yellow);
+}
+.switch-container {
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    border-bottom: 2px solid var(--grey);
+    padding: 12px;
+    border-width: 0 0 2px 0; /* Ancho del borde */
+    border-image: linear-gradient(90deg, rgb(27, 27, 27) 0%, rgb(136, 136, 136) 110%); /* Gradiente lineal como borde */
+    border-image-slice: 1; /* Establece cómo se corta la imagen de borde */
+    transition: all .4s;
+}
+.switch-container.highlighted {
+    border-width: 0 0 2px 0; /* Ancho del borde */
+    border-image: var(--golden); /* Gradiente lineal como borde */
+    border-image-slice: 1; /* Establece cómo se corta la imagen de borde */
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 28px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--background);
+    transition: .4s;
+    border-radius: 22px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background: var(--golden);
+}
+input:checked + .slider:before {
+    transform: translateX(28px);
+}
+.b-and-g {
+    font-size: 20px;
+    color: rgb(135, 135, 135);
+    justify-self: flex-end;
+    transition: color .4s;
+    padding: 4px;
+    cursor: pointer;
+}
+.color {
+    font-size: 20px;
+    color: rgb(135, 135, 135);
+    justify-self: flex-start;
+    transition: all .4s;
+    padding: 4px;
+    cursor: pointer;
+}
+.b-and-g.highlighted {
+    background: var(--background);
+    border-radius: 3px;
+    color: white;
+    padding: 4px;
+}
+.color.highlighted {
+    background: var(--golden);
+    border-radius: 3px;
+    color: white;
+    padding: 4px;
+}

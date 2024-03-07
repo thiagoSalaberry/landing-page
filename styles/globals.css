@@ -1,7 +1,17 @@
+:root {
+  --background: linear-gradient(315deg, rgba(29,29,29,1) 0%, rgba(80,80,80,1) 100%);
+  --yellow: #ffc71f;
+  --white: #f5f5f5;
+  --grey: #949494;
+  --asd: rgb(255, 165, 30);
+  --golden: linear-gradient(315deg, rgba(255, 215, 94,1) 0%, rgba(177, 116, 60,1) 100%);
+  --focus: linear-gradient(0deg, rgba(255, 165, 30,.2) -10%, rgba(0, 0, 0,0) 50%)
+}
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "Roboto Serif";
 }
 
 html,

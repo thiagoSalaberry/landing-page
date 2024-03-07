@@ -27,27 +27,21 @@ export default function ImageSlider(props:ImageSliderProps) {
         move();
     }, [x])
     return (
-        <div className={styles["slider-page"]}>
-            <h2>Slider 2</h2>
-            <div className={styles["slider"]}>
-                <div ref={containerRef} className={styles["img-container-2"]}>
-                    {props.imagesList.map((img, index) => {
-                        return <img key={index} className={styles["img-2"]} src={img.src} alt="image.jpg" />
-                    })}
-                </div>
-                <div className={styles["buttons-container"]}>
-                    <ArrowButton onClick={()=>handleMove("more")} color="white" size={20}/>
-                    <ArrowButton onClick={()=>handleMove("less")} color="white" size={20}/>
-                </div>
-                <div className={styles["current-container"]}>
-                    {props.imagesList.map((img, index) => {
-                        return <div key={index} className={`${styles["current"]} ${x * -1 / 100 == index ? styles["active"] : ""}`}></div>
-                    })}
-                    
-                    {/* <div className={`${styles["current"]} ${x == -100 ? styles["active"] : ""}`}></div>
-                    <div className={`${styles["current"]} ${x == -200 ? styles["active"] : ""}`}></div> */}
-                </div>
+        <div className={styles["slider"]}>
+            <div ref={containerRef} className={styles["img-container"]}>
+                {props.imagesList.map((img, index) => {
+                    return <img key={index} className={styles["img-2"]} src={img.src} alt="image.jpg" />
+                })}
             </div>
-        </div>    
+            <div className={styles["buttons-container"]}>
+                <ArrowButton onClick={()=>handleMove("more")} color="white" size={20} invert={true}/>
+                <ArrowButton onClick={()=>handleMove("less")} color="white" size={20}/>
+            </div>
+            <div className={styles["current-container"]}>
+                {props.imagesList.map((_, index) => {
+                    return <div key={index} className={`${styles["current"]} ${x * -1 / 100 == index ? styles["active"] : ""}`}></div>
+                })}
+            </div>
+        </div>
     )
 }
