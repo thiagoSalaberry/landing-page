@@ -4,7 +4,28 @@ import InputField from "@/ui/inputs";
 import TextAreaField from "@/ui/textarea";
 import SelectField from "@/ui/select";
 import ImageDrop from "../img-drop";
-export default function Form(props:FormProps) {
+import Calendar from "react-calendar";
+// import 'react-calendar/dist/Calendar.css';
+type ValuePiece = Date | null;
+
+type Value = ValuePiece | [ValuePiece, ValuePiece];
+const getWeekDay = (englishDay:string):string => {
+    const translate = {
+        Mon: "Lunes",
+        Tue: "Martes",
+        Wed: "Miércoles",
+        Thu: "Jueves",
+        Fri: "Viernes",
+        Sat: "Sábado",
+        Sun: "Domingo"
+    };
+    return translate[englishDay as keyof typeof translate];
+};
+const getMonth = (monthNumber:number):string => {
+    const months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre", "Diciembre"];
+    return months[monthNumber];
+}
+export default function Form() {
     const [form, setForm] = useState<FormProps>({
         name: "",
         email: "",
@@ -16,6 +37,8 @@ export default function Form(props:FormProps) {
         date: new Date()
     });
     const [currentStep, setCurrentStep] = useState<number>(0);
+    const [value, onChange] = useState<Value>(new Date());
+    const [selectedDay, setSelectedDay] = useState("");
     const handleSubmit = (e:React.FormEvent) => {
         e.preventDefault();
     };
@@ -46,7 +69,8 @@ export default function Form(props:FormProps) {
     const handleStep = (towards: "next" | "back") => {
         if(towards === "next") setCurrentStep((prevStep) => prevStep + 1);
         if(towards === "back") setCurrentStep((prevStep) => prevStep - 1);
-    }
+    };
+    console.log(form)
     const formHeaders:JSX.Element[] = [
         (
             <>
@@ -110,7 +134,12 @@ export default function Form(props:FormProps) {
         ),
         (
             <>
-                <InputField value={""} onChange={(value)=>handleInputChange("date", value)} type="text" label="TURNOS DISPONIBLES" name="date" />
+                 <Calendar
+                    className={styles["calendar"]} 
+                    tileClassName={styles["tile"]}
+                    onClickDay={(value) => setSelectedDay(`Tu turno será el ${getWeekDay(value.toDateString().split(" ")[0])} ${value.getDate()} de ${getMonth(value.getMonth())} del ${value.getFullYear()}`)}
+                />
+                {selectedDay ? <p>{selectedDay}</p> : null}
             </>
         ),
     ]
@@ -127,5 +156,3 @@ export default function Form(props:FormProps) {
         </form>
     )
 }
-//input.inputs_input__7hwNS.inputs_valued__gWXQP
-//input.inputs_input__7hwNS.inputs_valued__gWXQP

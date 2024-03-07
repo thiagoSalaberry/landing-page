@@ -67,3 +67,17 @@
     border-left: 1px solid var(--yellow);
     background: var(--golden);
 }
+.calendar {
+    color: white;
+    padding: 5px;
+    border-bottom: 1px solid var(--yellow);
+}
+.tile {
+    padding: 3px;
+    background: none;
+    border: none;
+    color: white;
+}
+.tile:hover {
+    background: rgba(255, 255, 255, .15);
+}

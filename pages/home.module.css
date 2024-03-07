@@ -8,3 +8,13 @@
     height: 100vh;
     padding: 20px;
 }
+.welcome {
+    display: flex;
+    width: 100%;
+    background-image: url("/tattoo1.jpg");
+    background-size: cover;
+    height: 570px;
+}
+.welcome-img {
+
+}

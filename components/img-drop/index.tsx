@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./img-drop.module.css";
-import { Trash } from "react-bootstrap-icons"
+import { Trash } from "react-bootstrap-icons";
+import { useCloudinary } from "@/lib/useCloudinary";
 export default function ImageDrop(props:ImageDropProps) {
     const [base64, setBase64] = useState<any>();
     const [imagesUrl, setImagesUrl] = useState<string[]>(props.images);
@@ -38,6 +39,8 @@ export default function ImageDrop(props:ImageDropProps) {
         setHovered(null)
         return () => controller.abort()
     }, [base64]);
+    // const {imgUrl, loading, error} = useCloudinary(base64);
+    // console.log({loading, imgUrl});
     return (
         <div className={styles["img-drop-container"]}>
             {imagesUrl.map((_, index) => {
