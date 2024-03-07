@@ -4,7 +4,7 @@ import LogoIcon from "@/assets/icons/logo.svg";
 import Navegation from "@/ui/atoms/navegation.atom";
 
 const HeaderStyled = styled.div`
-  position: fixed;
+  position: absolute;
   z-index: 9;
   padding: 0.5rem;
 
@@ -25,23 +25,23 @@ const HeaderStyled = styled.div`
   }
 
   .header__navegation {
-    position: relative;
-    margin: 0 auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    place-items: center;
 
     width: fit-content;
-    align-items: center;
+    margin: 0 auto;
   }
 `;
 
 export const Header = () => {
   return (
     <HeaderStyled className="transition-all">
-      <div className="header__navegation">
+      <nav className="header__navegation">
         <Navegation>SHOP</Navegation>
         <Image src={LogoIcon} alt={"#section_home"} className="header__logo" />
         <Navegation>GALLERY</Navegation>
-      </div>
+      </nav>
     </HeaderStyled>
   );
 };
