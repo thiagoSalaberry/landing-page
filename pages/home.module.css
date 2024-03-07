@@ -3,18 +3,54 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 100px;
     background: var(--background);
     height: 100vh;
-    padding: 20px;
+}
+.home-header {
+    /* background-color: rgba(66, 66, 66, 0.3); */
+    border-bottom: 1px solid rgba(255, 255, 255, .25);
+    width: 100%;
+    gap: 15px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 5px;
+    z-index: 10;
+}
+.link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+.link:first-child {
+    justify-self: flex-end;
 }
 .welcome {
     display: flex;
-    width: 100%;
-    background-image: url("/tattoo1.jpg");
-    background-size: cover;
-    height: 570px;
+    height: fit-content;
 }
-.welcome-img {
+.welcome-texts {
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(66, 66, 66, 0.3);
+}
+.welcome-title {
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    line-height: 90px;
+}
+.welcome-desc {
+    font-size: 18px;
+    color: #ddd;
+    text-align: center;
+    font-weight: 400;
 
+}
+.welcome-button {
+    margin-top: 50px;
 }

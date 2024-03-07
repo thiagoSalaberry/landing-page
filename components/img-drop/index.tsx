@@ -41,6 +41,7 @@ export default function ImageDrop(props:ImageDropProps) {
     }, [base64]);
     // const {imgUrl, loading, error} = useCloudinary(base64);
     // console.log({loading, imgUrl});
+    console.log(imagesUrl);
     return (
         <div className={styles["img-drop-container"]}>
             {imagesUrl.map((_, index) => {
