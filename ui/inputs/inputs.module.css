@@ -1,3 +1,4 @@
+
 .input-container {
     display: flex;
     flex-direction: column;
@@ -6,28 +7,35 @@
 }
 .input-label {
     color: white;
+    font-family: "Roboto";
+    font-weight: 300;
 }
 .input, .textarea {
     width: 100%;
+    font-family: "Roboto";
     background: none;
     border: none;
-    padding: 12px;
+    padding: 10px;
     color: white;
     border-bottom: 1px solid var(--grey);
     font-size: 18px;
     transition: all .1s;
+    text-decoration: none;
 }
 .textarea {
     min-height: 200px;
 }
 .input::placeholder, .textarea::placeholder {
-    color: rgb(96, 96, 96);
+    color: #757575;
 }
 .input:focus, .textarea:focus {
     outline: none;
-    background: var(--focus);
+    /* background: var(--focus); */
     border-bottom: 1px solid var(--yellow);
 }
 .valued {
     border-bottom: 1px solid var(--yellow);
+}
+.missing {
+    border-bottom: 1px solid var(--red);
 }

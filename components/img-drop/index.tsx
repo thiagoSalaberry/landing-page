@@ -47,7 +47,7 @@ export default function ImageDrop(props:ImageDropProps) {
             {imagesUrl.map((_, index) => {
                 return (
                     <div className={styles["thumbnail-container"]} key={index} onMouseOver={()=>setHovered(index)} onMouseOut={()=>setHovered(null)}>
-                        {hovered == index ? <button onClick={()=>handleDelete(index)} className={styles["delete-button"]}><Trash size={35}/></button> : null}
+                        {hovered == index ? <button onClick={()=>handleDelete(index)} className={styles["delete-button"]}><Trash size={35} color="#fff"/></button> : null}
                         <img src={imagesUrl[index]} className={`${styles["thumbnail"]} ${hovered == index ? styles["hovered"] : ""}`}/>
                     </div>
                 )

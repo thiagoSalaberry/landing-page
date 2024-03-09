@@ -35,7 +35,7 @@ type FormProps = {
   email: string;
   idea: string;
   body: string;
-  size: number;
+  size: string;
   color: boolean;
   images?: string[];
   date: Date;

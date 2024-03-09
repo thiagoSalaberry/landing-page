@@ -13,10 +13,12 @@ export default function Home() {
         <Logo size={45}/>
         <Link href={"/ashee"} className={styles["link"]}>PORTFOLIO</Link>
       </header>
-      <section className={styles["form"]}>
-        {/* <Form/> */}
+      <section className={styles["welcome"]}>
+        <ImageSlider imagesList={imagesList}/>
       </section>
-      <ImageSlider imagesList={imagesList}/>
+      <section className={styles["form-section"]}>
+        <Form/>
+      </section>
     </main>
   )
 }

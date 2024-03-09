@@ -111,14 +111,14 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 .b-and-g.highlighted {
-    background: var(--background);
-    border-radius: 3px;
+    /* background: var(--background); */
+    /* border-radius: 3px; */
     color: white;
-    padding: 4px;
+    /* padding: 4px; */
 }
 .color.highlighted {
-    background: var(--golden);
-    border-radius: 3px;
+    /* background: var(--golden);
+    border-radius: 3px; */
     color: white;
-    padding: 4px;
+    /* padding: 4px; */
 }
