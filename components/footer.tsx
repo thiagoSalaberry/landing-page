@@ -6,7 +6,7 @@ import MapMarkIcon from "@/assets/icons/mapMark.svg";
 import InstagramIcon from "@/assets/icons/instagram.svg";
 import Navegation from "@/ui/atoms/navegation.atom";
 
-const FooterStyled = styled.div`
+const FooterStyled = styled.footer`
   .footer__content {
     padding: 5rem 1rem;
     maring: 0 auto;
@@ -60,7 +60,7 @@ export const Footer = () => {
         <p className="quote">Tattoos are more than just drawings, they are symbols of your identity and your experiences.</p>
       </div>
 
-      <p className="footer__copyright">© 2020 Teoxys Tattoo, All Rights Reserved</p>
+      <p className="footer__copyright">© 2024 Teoxys Tattoo, All Rights Reserved</p>
     </FooterStyled>
   );
 };
