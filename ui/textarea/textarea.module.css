@@ -7,14 +7,18 @@
 }
 .textarea-label {
     color: white;
+    font-family: "Poppins";
+    font-weight: 400;
 }
 .textarea {
     width: 100%;
+    font-family: "Poppins";
     background: none;
     border: none;
     padding: 12px;
     color: white;
-    border-bottom: 1px solid var(--grey);
+    border: 2px solid #505050;
+    border-radius: 8px;
     font-size: 18px;
     transition: all .1s;
     min-height: 200px;
@@ -25,8 +29,8 @@
 }
 .textarea:focus, .textarea:focus {
     outline: none;
-    border-bottom: 1px solid var(--yellow);
+    border: 2px solid var(--yellow);
 }
 .valued {
-    border-bottom: 1px solid var(--yellow);
+    border: 2px solid var(--yellow);
 }

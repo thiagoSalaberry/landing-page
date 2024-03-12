@@ -33,6 +33,7 @@ type TextAreaFieldProps = {
 type FormProps = {
   name: string;
   email: string;
+  phone: string;
   idea: string;
   body: string;
   size: string;
@@ -44,4 +45,11 @@ type ImageDropProps = {
   images: string[];
   onChange: (imageUrl: string) => void;
   onClick: (index: number) => void;
+};
+type CalendarDay = {
+  fecha: string;
+  isCurrentMonth?: boolean;
+  gone?: boolean;
+  today?: boolean;
+  taken?: boolean;
 };
