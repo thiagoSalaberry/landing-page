@@ -207,3 +207,8 @@
     background: #57CA70;
     border: none;
 }
+.day.prev-month, .day.next-month {
+    background: none;
+    border: none;
+    color: #505050;
+}
