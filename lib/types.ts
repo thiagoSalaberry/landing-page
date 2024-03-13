@@ -12,6 +12,7 @@ type InputFieldProps = {
   required?: boolean;
   compRef?: React.RefObject<HTMLInputElement>;
   value: string | number;
+  missing: boolean;
   onChange?: (input: string | number) => void;
 };
 type SelectProps = {
@@ -46,10 +47,8 @@ type ImageDropProps = {
   onChange: (imageUrl: string) => void;
   onClick: (index: number) => void;
 };
-type CalendarDay = {
-  fecha: string;
-  isCurrentMonth?: boolean;
-  gone?: boolean;
-  today?: boolean;
-  taken?: boolean;
+type Calendar = {
+  selectedDay?: Date | null;
+  missing: boolean;
+  onClick: (day: Date) => void;
 };

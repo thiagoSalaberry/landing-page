@@ -9,6 +9,8 @@
     color: white;
     font-family: "Poppins";
     font-weight: 400;
+    display: flex;
+    justify-content: space-between;
 }
 .textarea {
     width: 100%;
@@ -33,4 +35,11 @@
 }
 .valued {
     border: 2px solid var(--yellow);
+}
+.missing {
+    border: 2px solid var(--red);
+}
+.error-message {
+    color: var(--red);
+    text-align: right;
 }

@@ -8,6 +8,9 @@
     color: white;
     font-family: "Poppins";
     font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 .input, .textarea {
     width: 100%;
@@ -38,4 +41,9 @@
 }
 .missing {
     border: 2px solid var(--red);
+}
+.error-message {
+    color: var(--red);
+    font-size: 16px;
+    text-align: center;
 }

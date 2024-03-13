@@ -9,8 +9,8 @@ export default function TextAreaField(props:InputFieldProps) {
     };
     return (
         <div className={styles["textarea-container"]}>
-            <label htmlFor={props.name} className={styles["textarea-label"]}>{props.label}</label>
-            <textarea value={props.value} name={props.name} className={`${styles["textarea"]} ${props.value !== "" ? styles["valued"] : ""}`} onChange={handleChange} placeholder={props.placeholder} required={props.required} />
+            <label htmlFor={props.name} className={styles["textarea-label"]}>{props.label}{props.missing && props.value == "" ? <p className={styles["error-message"]}>Completá este campo</p> : null}</label>
+            <textarea value={props.value} name={props.name} className={`${styles["textarea"]} ${props.value !== "" ? styles["valued"] : ""} ${props.missing && props.value == "" ? styles["missing"] : ""}`} onChange={handleChange} placeholder={props.placeholder} required={props.required} />
         </div>
     )
 }

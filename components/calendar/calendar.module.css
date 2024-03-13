@@ -32,16 +32,11 @@
 .current-month {
     padding: 0 10px;
 }
-.next-month {
-
-}
 .week-days{
     display: grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(7, 1fr);
-    /* grid-template-columns: auto; */
-    /* border: solid 1px #8e8e8e; */
     row-gap: 5px;
 }
 .week-day {
@@ -63,7 +58,6 @@
     width: 100%;
 }
 .day {
-    color: #505050;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,10 +67,12 @@
     margin: 0;
     justify-self: center;
     align-self: center;
-    /* transition: all .1s; */
+    transition: all .05s;
+    border: solid 1px #505050;
+    color: #8e8e8e;
 }
 .day.gone {
-    color: #838383;
+    color: #8e8e8e;
     background: #505050;
 }
 .day.taken {
@@ -87,111 +83,73 @@
 .chosen {
     color: #8e8e8e;
     text-align: center;
+    margin-top: 20px;
 }
 .new {
     color: #8e8e8e;
 }
-.segundo {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: auto repeat(7, 1fr);
-    gap: 10px;
-}
-.segundo-week-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: 1fr;
-    grid-column: 1/8;
-}
 .day.Mon {
     grid-column: 1;
-    color: #373fc7;
     width: 35px;
     height: 35px;
-    color: #8e8e8e;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px #8e8e8e;
 }
 .day.Tue {
     grid-column: 2;
-    color: #d75151;
     width: 35px;
     height: 35px;
-    color: #8e8e8e;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px #8e8e8e;
-    
 }
 .day.Wed {
     grid-column: 3;
-    color: #d1a837;
     width: 35px;
     height: 35px;
-    color: #8e8e8e;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px #8e8e8e;
-    
 }
 .day.Thu {
     grid-column: 4;
-    color: #9b32cf;
     width: 35px;
     height: 35px;
-    color: #8e8e8e;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px #8e8e8e;
-    
 }
 .day.Fri {
     grid-column: 5;
-    color: #8e8e8e;
     width: 35px;
     height: 35px;
-    color: #8e8e8e;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px #8e8e8e;
-    
 }
 .day.Sat {
     grid-column: 6;
-    color: #49be66;
     width: 35px;
     height: 35px;
-    color: #8e8e8e;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px #8e8e8e;
-    
 }
 .day.Sun {
     grid-column: 7;
-    color: #e9a353;
     width: 35px;
     height: 35px;
-    color: #8e8e8e;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px #8e8e8e;
-
 }
 .day.gone {
     border: none;
@@ -211,4 +169,10 @@
     background: none;
     border: none;
     color: #505050;
+}
+.error-message {
+    color: var(--red);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
 }

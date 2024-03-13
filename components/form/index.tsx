@@ -4,27 +4,11 @@ import InputField from "@/ui/inputs";
 import TextAreaField from "@/ui/textarea";
 import SelectField from "@/ui/select";
 import ImageDrop from "../img-drop";
-import Calendar from "react-calendar";
-// import 'react-calendar/dist/Calendar.css';
-type ValuePiece = Date | null;
-
-type Value = ValuePiece | [ValuePiece, ValuePiece];
-const getWeekDay = (englishDay:string):string => {
-    const translate = {
-        Mon: "Lunes",
-        Tue: "Martes",
-        Wed: "Miércoles",
-        Thu: "Jueves",
-        Fri: "Viernes",
-        Sat: "Sábado",
-        Sun: "Domingo"
-    };
-    return translate[englishDay as keyof typeof translate];
-};
-const getMonth = (monthNumber:number):string => {
-    const months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre", "Diciembre"];
-    return months[monthNumber];
-}
+import Calendar  from "@/components/calendar";
+import { formatDate } from "@/lib/formatDate";
+import { CircularProgress } from "@mui/material";
+import { isToday } from "date-fns";
+import Router from "next/router";
 export default function Form() {
     const [form, setForm] = useState<FormProps>({
         name: "",
@@ -38,10 +22,28 @@ export default function Form() {
         date: new Date()
     });
     const [currentStep, setCurrentStep] = useState<number>(0);
-    const [value, onChange] = useState<Value>(new Date());
-    const [selectedDay, setSelectedDay] = useState("");
+    const [missing, setMissing] = useState<{
+            name: boolean,
+            email: boolean,
+            phone: boolean,
+            idea: boolean,
+            body: boolean,
+            size: boolean,
+            date: boolean
+        }>(
+        {
+            name: false,
+            email: false,
+            phone: false,
+            idea: false,
+            body: false,
+            size: false,
+            date: false
+        }
+    );
     const handleSubmit = (e:React.FormEvent) => {
         e.preventDefault();
+        console.log("Submit")
     };
     const handleInputChange = (fieldName: keyof FormProps, value: string | number) => {
         setForm({
@@ -68,15 +70,65 @@ export default function Form() {
         })
     }
     const handleStep = (towards: "next" | "back") => {
+        if(towards === "back") setCurrentStep((prevStep) => prevStep - 1);
+        if(currentStep == 0 && (!form.name || !form.email || !form.phone)) {
+            const aCambiar = {
+                name:false,
+                email:false,
+                phone:false
+            };
+            const faltantes = Object.entries(form).slice(0, 3).filter(tupla => tupla[1] == "").map(tupla => tupla[0]);
+            faltantes.forEach(prop => {
+                aCambiar[prop as keyof typeof aCambiar] = true;
+            })
+            setMissing({...missing, name: aCambiar.name, email: aCambiar.email, phone: aCambiar.phone});
+            return;
+        };
+        if(currentStep == 1 && !form.idea) {
+            setMissing({...missing, idea: true});
+            return;
+        }
+        if(currentStep == 2 && (!form.body || !form.size)) {
+            const aCambiar = {
+                body: false,
+                size: false
+            };
+            const faltantes = Object.entries(form).slice(4, 6).filter(tupla => tupla[1] == "").map(tupla => tupla[0]);
+            faltantes.forEach(prop => {
+                aCambiar[prop as keyof typeof aCambiar] = true;
+            });
+            setMissing({...missing, body: aCambiar.body, size: aCambiar.size})
+            return;
+        };
+        if(currentStep == 4 && isToday(form.date)) {
+            setMissing({...missing, date:true});
+            return
+        }
         if(towards === "next") {
             setCurrentStep((prevStep) => prevStep + 1);
         }
-        if(towards === "back") setCurrentStep((prevStep) => prevStep - 1);
     };
     const goToStep = (step: "idea" | "images") => {
         if(step == "idea") setCurrentStep(1);
         if(step == "images") setCurrentStep(3);
-    }
+    };
+    const handleDateSelect = (day:Date) => {
+        setForm({
+            ...form,
+            date: day
+        });
+        setMissing({...missing, date: false});
+    };
+    if(currentStep == 6) {
+        setTimeout(()=>{
+            setCurrentStep(7)
+        }, 2000)
+    };
+    if(currentStep == 7) {
+        setTimeout(()=>{
+            Router.reload();
+        }, 5000)
+    };
     const formHeaders:JSX.Element[] = [
         (
             <>
@@ -118,20 +170,20 @@ export default function Form() {
     const formSteps:JSX.Element[] = [
         (
             <>
-                <InputField value={form.name} onChange={(value)=>handleInputChange("name", value)} type="text" label="Nombre" name="name" placeholder="Nombre" required={true}/>
-                <InputField value={form.email} onChange={(value)=>handleInputChange("email", value)} type="email" label="E-Mail" name="email" placeholder="E-Mail" required={true}/>
-                <InputField value={form.phone} onChange={(value)=>handleInputChange("phone", value)} type="number" label="Celular" name="phone" placeholder="12345678" required={true}/>
+                <InputField value={form.name} missing={missing.name} onChange={(value)=>handleInputChange("name", value)} type="text" label="Nombre" name="name" placeholder="Nombre" required/>
+                <InputField value={form.email} missing={missing.email} onChange={(value)=>handleInputChange("email", value)} type="email" label="E-Mail" name="email" placeholder="E-Mail" required/>
+                <InputField value={form.phone} missing={missing.phone} onChange={(value)=>handleInputChange("phone", value)} type="number" label="Celular" name="phone" placeholder="12345678" required/>
             </>
         ),
         (
             <>
-                <TextAreaField value={form.idea} onChange={(value)=>handleInputChange("idea", value)} type="text" label="Idea" name="idea" placeholder="Detallá tu idea acá" />
+                <TextAreaField value={form.idea} missing={missing.idea} onChange={(value)=>handleInputChange("idea", value)} type="text" label="Idea" name="idea" placeholder="Detallá tu idea acá" required/>
             </>
         ),
         (
             <>
-                <InputField value={form.body} onChange={(value)=>handleInputChange("body", value)} type="text" label="Parte del cuerpo" name="body" placeholder="ej. brazo" />
-                <InputField value={form.size} onChange={(value)=>handleInputChange("size", value)} type="number" label="Tamaño (en cm)" name="size" placeholder="ej. 15cm" />
+                <InputField value={form.body} missing={missing.body} onChange={(value)=>handleInputChange("body", value)} type="text" label="Parte del cuerpo" name="body" placeholder="ej. brazo" required/>
+                <InputField value={form.size} missing={missing.size} onChange={(value)=>handleInputChange("size", value)} type="number" label="Tamaño (en cm)" name="size" placeholder="ej. 15cm" required/>
                 <SelectField onChange={handleSelectChange} selected={form.color} label="Black & Grey o Color" name="color" />
             </>
         ),
@@ -142,12 +194,7 @@ export default function Form() {
         ),
         (
             <>
-                 <Calendar
-                    className={styles["calendar"]} 
-                    tileClassName={styles["tile"]}
-                    onClickDay={(value) => setSelectedDay(`Tu turno será el ${getWeekDay(value.toDateString().split(" ")[0])} ${value.getDate()} de ${getMonth(value.getMonth())} del ${value.getFullYear()}`)}
-                />
-                {selectedDay ? <p>{selectedDay}</p> : null}
+                 <Calendar onClick={handleDateSelect} selectedDay={form.date ? form.date : null} missing={missing.date}/>
             </>
         ),
         (
@@ -174,7 +221,7 @@ export default function Form() {
                     </div>
                     <div className={styles["divider"]}></div>
                     <div className={styles["summary-section"]}>
-                        <p className={styles["summary-data"]}>Fecha:<span className={styles["summary-value"]}>{JSON.stringify(form.date)}</span></p>
+                        <p className={styles["summary-data"]}>Fecha:<span className={styles["summary-value"]}>{formatDate(form.date)}</span></p>
                     </div>
                 </div>
                 <div className={styles["total"]}>
@@ -182,12 +229,28 @@ export default function Form() {
                 </div>
             </>
         ),
-    ]
+        (
+            <div className={styles["loading-step"]}>
+                <CircularProgress size={50}/>
+                <p className={styles["loading-message"]}>Estamos agendando su turno, espere por favor...</p>
+            </div>
+        ),
+        (
+            <div className={styles["thanks-step"]}>
+                <img src="/thanks.png" alt="" />
+                <h2 className={styles["thanks-title"]}>¡ Gracias !</h2>
+                <p className={styles["thanks-message"]}>Gracias por agendar tu turno.<br/>Te enviaremos un recordatorio cuando la fecha esté cerca.<br/>¡Nos vemos!</p>
+            </div>
+        ),
+    ];
+    useEffect(()=>{
+        console.log({missing})
+    }, [missing])
     return (
         <section className={styles["form-section"]}>
             <div className={styles["steps-section"]}>
                 <div className={styles["steps-container"]}>
-                    {formSteps.map((_, index) => {
+                    {formSteps.slice(0,6).map((_, index) => {
                         return <p key={index} className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{index + 1}</p>
                     })}
                 </div>
@@ -199,10 +262,12 @@ export default function Form() {
                 <div className={styles["inputs-container"]}>
                     {formSteps[currentStep]}
                 </div>
-                <div className={styles["buttons-container"]}>
-                    {currentStep > 0 ? <button onClick={()=>handleStep("back")} className={styles["back-button"]}>Volver</button> : null}
-                    <button onClick={()=>handleStep("next")} className={styles["next-button"]}>{currentStep == 5 ? "Confirmar" : "Siguiente"}</button>
-                </div>
+                {currentStep > 5 ? null : (
+                    <div className={styles["buttons-container"]}>
+                        {currentStep > 0 ? <button type="button" onClick={()=>handleStep("back")} className={styles["back-button"]}>Volver</button> : null}
+                        <button type="button" onClick={()=>handleStep("next")} /*onMouseOver={()=>console.log("Completá los campos")}*/ className={`${styles["next-button"]} ${false ? styles["disabled"] : ""}`}>{currentStep == 5 ? "Confirmar" : "Siguiente"}</button>
+                    </div>
+                    )}
             </form>
         </section>
     )
