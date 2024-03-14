@@ -13,13 +13,15 @@
     align-items: center;
     height: 40px;
     padding: 5px 0;
+    overflow: hidden;
 }
 .prev-month, .next-month {
     background: none;
     border: none;
     color: #838383;
     width: 35px;
-    height: 35px;
+    height: 36px;
+    cursor: pointer;
 }
 .prev-month:active, .next-month:active {
     background-color: #505050;
@@ -70,15 +72,18 @@
     transition: all .05s;
     border: solid 1px #505050;
     color: #8e8e8e;
+    cursor: pointer;
 }
 .day.taken {
     color: #252525;
     background: #c54e4e;
     border: none;
+    cursor: inherit;
 }
 .day.gone {
     color: #8e8e8e;
     background: #505050;
+    cursor: inherit;
 }
 .chosen {
     color: #8e8e8e;
@@ -169,6 +174,7 @@
     background: none;
     border: none;
     color: #505050;
+    cursor: inherit;
 }
 .error-message {
     color: var(--red);

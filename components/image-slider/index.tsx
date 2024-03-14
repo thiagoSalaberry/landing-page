@@ -47,7 +47,7 @@ export default function ImageSlider(props:ImageSliderProps) {
                 </div>
                 <h1 className={styles["welcome-title"]}>TEOXYS TATTOO</h1>
                 <p className={styles["welcome-desc"]}>It’s not all about the tools, it’s about design, precision and attention to detail.</p>
-                <button className={styles["welcome-button"]}>Book your session</button>
+                <button className={styles["welcome-button"]}>Agendar turno</button>
             </div>
         </div>
     )

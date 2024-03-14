@@ -6,7 +6,7 @@ export default function Calendar(props: Calendar) {
     const months:string[] = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
     const [selected, setSelected] = useState<Date | null>(props.selectedDay!);
     const [currentMonth, setCurrentMonth] = useState<number>(getMonth(props.selectedDay!));
-    const [reservados, setReservados] = useState(new Array(35).fill(1).map(n => n * Math.floor(Math.random() * 2 + 1)))
+    const [reservados, setReservados] = useState(new Array(35).fill(1).map(n => n * Math.floor(Math.random() * 2 + 1)));
     const thisMonth = getMonth(new Date());
     const handleDaySelect = ({day, taken}: {day:Date, taken:boolean}) => {
         if(isPast(day) || isSunday(day) || !isSameMonth(day, currentMonthDays[0].day) || taken) return;

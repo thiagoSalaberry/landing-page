@@ -19,7 +19,7 @@ export default function Form() {
         size: "",
         color: false,
         images: [],
-        date: new Date()
+        date: new Date(),
     });
     const [currentStep, setCurrentStep] = useState<number>(0);
     const [missing, setMissing] = useState<{
@@ -41,6 +41,7 @@ export default function Form() {
             date: false
         }
     );
+    const [checked, setChecked] = useState(false);
     const handleSubmit = (e:React.FormEvent) => {
         e.preventDefault();
         console.log("Submit")
@@ -104,6 +105,7 @@ export default function Form() {
             setMissing({...missing, date:true});
             return
         }
+        if(towards === "next" && currentStep == 5 && !checked) return;
         if(towards === "next") {
             setCurrentStep((prevStep) => prevStep + 1);
         }
@@ -124,11 +126,11 @@ export default function Form() {
             setCurrentStep(7)
         }, 3000)
     };
-    if(currentStep == 7) {
-        setTimeout(()=>{
-            Router.reload();
-        }, 5000)
-    };
+    // if(currentStep == 7) {
+    //     setTimeout(()=>{
+    //         Router.reload();
+    //     }, 5000)
+    // };
     const formHeaders:JSX.Element[] = [
         (
             <>
@@ -227,6 +229,10 @@ export default function Form() {
                 <div className={styles["total"]}>
                     <p className={styles["summary-data"]}>Precio estimado:<span className={styles["summary-value"]}>${form.color ? (parseInt(form.size) * 1500 * 1.5).toLocaleString() : (parseInt(form.size) * 1500).toLocaleString()}</span></p>
                 </div>
+                <div className={styles["confirm-container"]}>
+                    <label htmlFor="confirm" className={styles["confirm-label"]}>Revisé que todos los datos sean correctos</label>
+                    <input type="checkbox" checked={checked} name="confirm" id="confirm" onChange={()=>setChecked(!checked)} className={styles["confirm-checkbox"]} required/>
+                </div>
             </>
         ),
         (
@@ -243,29 +249,50 @@ export default function Form() {
             </div>
         ),
     ];
+    const stepText:string[] = [
+        "TU INFO",
+        "IDEA",
+        "DETALLES",
+        "IMÁGENES",
+        "FECHA",
+        "RESUMEN",
+    ];
     return (
         <section className={styles["form-section"]}>
-            <div className={styles["steps-section"]}>
-                <div className={styles["steps-container"]}>
-                    {formSteps.slice(0,6).map((_, index) => {
-                        return <p key={index} className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{index + 1}</p>
-                    })}
-                </div>
-            </div>
-            <form className={styles["form"]} onSubmit={handleSubmit}>
-                <div className={styles["form-header"]}>
-                    {formHeaders[currentStep]}
-                </div>
-                <div className={styles["inputs-container"]}>
-                    {formSteps[currentStep]}
-                </div>
-                {currentStep > 5 ? null : (
-                    <div className={styles["buttons-container"]}>
-                        {currentStep > 0 ? <button type="button" onClick={()=>handleStep("back")} className={styles["back-button"]}>Volver</button> : null}
-                        <button type="button" onClick={()=>handleStep("next")} /*onMouseOver={()=>console.log("Completá los campos")}*/ className={`${styles["next-button"]} ${false ? styles["disabled"] : ""}`}>{currentStep == 5 ? "Confirmar" : "Siguiente"}</button>
+                <div className={styles["steps-section"]}>
+                    <div className={styles["steps-container"]}>
+                        {formSteps.slice(0,6).map((_, index) => {
+                            return <p key={index} className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{index + 1}</p>
+                        })}
                     </div>
-                    )}
-            </form>
+                </div>
+                <form className={styles["form"]} onSubmit={handleSubmit}>
+                    <div className={styles["steps-section-desktop"]}>
+                        <div className={styles["steps-container"]}>
+                            {formSteps.slice(0,6).map((_, index) => {
+                                return (
+                                    <div key={index} className={styles["step-container"]}>
+                                        <p className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{index + 1}</p>
+                                        <p className={`${styles["step-number"]}`}>Step {index + 1}</p>
+                                        <p className={`${styles["step-label"]}`}>{stepText[index]}</p>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                    <div className={styles["form-header"]}>
+                        {formHeaders[currentStep]}
+                    </div>
+                    <div className={styles["inputs-container"]}>
+                        {formSteps[currentStep]}
+                    </div>
+                    {currentStep > 5 ? null : (
+                        <div className={styles["buttons-container"]}>
+                            {currentStep > 0 ? <button type="button" onClick={()=>handleStep("back")} className={styles["back-button"]}>Volver</button> : null}
+                            <button type="button" onClick={()=>handleStep("next")} className={`${styles["next-button"]} ${currentStep == 5 && !checked ? styles["disabled"] : ""}`}>{currentStep == 5 ? "Confirmar" : "Siguiente"}</button>
+                        </div>
+                        )}
+                </form>
         </section>
     )
 }
