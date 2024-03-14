@@ -25,15 +25,16 @@ export default function ImageDrop(props:ImageDropProps) {
     }
     useEffect(()=>{
         if(!base64 || imagesUrl.length == 4) return;
+        console.log(base64)
         setError(false);
         setLoading(true);
         const controller = new AbortController();
-        fetch(`http://localhost:9999/upload-image`, {
+        fetch("http://localhost:3000/api/upload-image", {
             method:"POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({imageURL: base64}),
+            body: JSON.stringify({base64: base64}),
             signal:controller.signal
         })
         .then(res => res.json())
