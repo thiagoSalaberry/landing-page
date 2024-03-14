@@ -4,7 +4,6 @@ import InputField from "@/ui/inputs";
 import TextAreaField from "@/ui/textarea";
 import SelectField from "@/ui/select";
 import ImageDrop from "../img-drop";
-import Calendar from "react-calendar";
 // import 'react-calendar/dist/Calendar.css';
 type ValuePiece = Date | null;
 
@@ -130,16 +129,6 @@ export default function Form() {
         (
             <>
                 <ImageDrop images={form.images!} onChange={handleImageUpload} onClick={handleDelete}/>
-            </>
-        ),
-        (
-            <>
-                 <Calendar
-                    className={styles["calendar"]} 
-                    tileClassName={styles["tile"]}
-                    onClickDay={(value) => setSelectedDay(`Tu turno será el ${getWeekDay(value.toDateString().split(" ")[0])} ${value.getDate()} de ${getMonth(value.getMonth())} del ${value.getFullYear()}`)}
-                />
-                {selectedDay ? <p>{selectedDay}</p> : null}
             </>
         ),
     ]
