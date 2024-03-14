@@ -71,14 +71,14 @@
     border: solid 1px #505050;
     color: #8e8e8e;
 }
-.day.gone {
-    color: #8e8e8e;
-    background: #505050;
-}
 .day.taken {
     color: #252525;
     background: #c54e4e;
     border: none;
+}
+.day.gone {
+    color: #8e8e8e;
+    background: #505050;
 }
 .chosen {
     color: #8e8e8e;

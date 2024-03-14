@@ -25,6 +25,11 @@
     color: var(--yellow);
     cursor: pointer;
 }
+.img-drop-label.error {
+    border: 2px solid var(--red);
+    color: var(--red);
+    cursor: pointer;
+}
 .thumbnail-container {
     width: 100%;
     height: auto;

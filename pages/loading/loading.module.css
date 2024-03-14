@@ -1,0 +1,41 @@
+.loading-page, .add-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.add-container {
+    font-size: 50px;
+    border: 5px solid var(--yellow);
+    color: var(--yellow);
+    padding: 100px 70px;
+    border-radius: 20px;
+    width: 200px;
+    height: 300px;
+}
+.state-container {
+    display: flex;
+    gap: 20px;
+    font-size: 30px;
+    color: white;
+}
+.add-container.data {
+    border: 5px solid rgb(74, 213, 102);
+    color: rgb(74, 213, 102);
+}
+.add-container.loading {
+    border: 5px solid var(--grey);
+    color: var(--grey);
+}
+.add-container.error {
+    border: 5px solid var(--red);
+    color: var(--red);
+}
+.data {
+    color: rgb(74, 213, 102);
+}
+.error {
+    color: var(--red);
+}

@@ -2,10 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./img-drop.module.css";
 import { Trash } from "react-bootstrap-icons";
 import { useCloudinary } from "@/lib/useCloudinary";
+import { CircularProgress } from "@mui/material";
 export default function ImageDrop(props:ImageDropProps) {
     const [base64, setBase64] = useState<any>();
     const [imagesUrl, setImagesUrl] = useState<string[]>(props.images);
     const [hovered, setHovered] = useState<number | null>();
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.item(0);
         if (!file) return;
@@ -22,6 +25,8 @@ export default function ImageDrop(props:ImageDropProps) {
     }
     useEffect(()=>{
         if(!base64 || imagesUrl.length == 4) return;
+        setError(false);
+        setLoading(true);
         const controller = new AbortController();
         fetch(`http://localhost:9999/upload-image`, {
             method:"POST",
@@ -35,13 +40,12 @@ export default function ImageDrop(props:ImageDropProps) {
         .then(data => {
             setImagesUrl(prev => [...prev, data])
             props.onChange(data)
-        });
+        })
+        .catch(()=>setError(true))
+        .finally(()=>setLoading(false));
         setHovered(null)
         return () => controller.abort()
     }, [base64]);
-    // const {imgUrl, loading, error} = useCloudinary(base64);
-    // console.log({loading, imgUrl});
-    console.log(imagesUrl);
     return (
         <div className={styles["img-drop-container"]}>
             {imagesUrl.map((_, index) => {
@@ -52,7 +56,11 @@ export default function ImageDrop(props:ImageDropProps) {
                     </div>
                 )
             })}
-            {imagesUrl.length == 4 ? null : <label htmlFor="drop" className={styles["img-drop-label"]}>+</label>}
+            {imagesUrl.length == 4 ? null : <label htmlFor="drop" className={`${styles["img-drop-label"]} ${error ? styles["error"] : ""}`}>{
+                error ? "X" : 
+                loading ? <CircularProgress color="inherit" size={50}/> : 
+                "+"
+            }</label>}
             <input type="file" name="" id="drop" className={styles["drop"]} onChange={handleChange}/>
         </div>
     )

@@ -122,7 +122,7 @@ export default function Form() {
     if(currentStep == 6) {
         setTimeout(()=>{
             setCurrentStep(7)
-        }, 2000)
+        }, 3000)
     };
     if(currentStep == 7) {
         setTimeout(()=>{
@@ -243,9 +243,6 @@ export default function Form() {
             </div>
         ),
     ];
-    useEffect(()=>{
-        console.log({missing})
-    }, [missing])
     return (
         <section className={styles["form-section"]}>
             <div className={styles["steps-section"]}>
