@@ -13,12 +13,15 @@
     padding: 0;
     overflow: visible;
     cursor: pointer;
-    transition: all .5s;
+    transition: all .1s;
     display: flex;
     align-items: center;
 }
 .svg-button.invert {
     transform: scaleX(-1);
+}
+.svg-button:active {
+    transform: scale(.9);
 }
 .inner.active {
     animation: scale .5s;

@@ -6,28 +6,59 @@
 }
 .input-label {
     color: white;
+    font-family: "Poppins";
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 .input, .textarea {
     width: 100%;
+    font-family: "Poppins";
     background: none;
     border: none;
-    padding: 12px;
+    padding: 10px;
     color: white;
-    border-bottom: 1px solid var(--grey);
+    border: 2px solid #505050;
+    border-radius: 8px;
     font-size: 18px;
     transition: all .1s;
+    text-decoration: none;
 }
 .textarea {
     min-height: 200px;
 }
 .input::placeholder, .textarea::placeholder {
-    color: rgb(96, 96, 96);
+    color: rgb(131, 131, 131);
 }
 .input:focus, .textarea:focus {
     outline: none;
-    background: var(--focus);
-    border-bottom: 1px solid var(--yellow);
+    background: none;
+    border: 2px solid var(--yellow);
+}
+.input::-webkit-contacts-auto-fill-button {
+    background: none !important;
 }
 .valued {
-    border-bottom: 1px solid var(--yellow);
+    border: 2px solid var(--yellow);
+}
+.missing {
+    border: 2px solid var(--red);
+}
+.error-message {
+    color: var(--red);
+    font-size: 16px;
+    text-align: center;
+}
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover, 
+.input:-webkit-autofill:focus, 
+.input:-webkit-autofill:active,
+.textarea:-webkit-autofill,
+.textarea:-webkit-autofill:hover, 
+.textarea:-webkit-autofill:focus, 
+.textarea:-webkit-autofill:active {
+    -webkit-text-fill-color: white !important; /* Color del texto */
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important; /* Evitar el fondo de color */
+    transition: background-color 5000s ease-in-out 0s; /* Añadir transición si es necesario */
 }

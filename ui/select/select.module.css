@@ -1,40 +1,3 @@
-.select-container {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 100%;
-}
-.select-label {
-    color: white;
-}
-.select, .textarea {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 12px;
-    color: white;
-    border-bottom: 1px solid var(--grey);
-    font-size: 18px;
-    transition: all .1s;
-}
-.textarea {
-    min-height: 200px;
-}
-.select::placeholder, .textarea::placeholder {
-    color: rgb(96, 96, 96);
-}
-.select:focus, .textarea:focus {
-    outline: none;
-    background: var(--focus);
-    border-bottom: 1px solid var(--yellow);
-}
-.option {
-    color: black;
-    background-color: transparent;
-}
-.valued {
-    border-bottom: 1px solid var(--yellow);
-}
 .switch-container {
     display: flex;
     display: grid;
@@ -43,18 +6,19 @@
     align-items: center;
     gap: 20px;
     width: 100%;
-    border-bottom: 2px solid var(--grey);
     padding: 12px;
-    border-width: 0 0 2px 0; /* Ancho del borde */
-    border-image: linear-gradient(90deg, rgb(27, 27, 27) 0%, rgb(136, 136, 136) 110%); /* Gradiente lineal como borde */
-    border-image-slice: 1; /* Establece cómo se corta la imagen de borde */
+    background: #505050;
+    border-radius: 8px;
+    /* border-width: 0 0 2px 0;
+    border-image: linear-gradient(90deg, rgb(27, 27, 27) 0%, rgb(136, 136, 136) 110%);
+    border-image-slice: 1; */
     transition: all .4s;
 }
-.switch-container.highlighted {
-    border-width: 0 0 2px 0; /* Ancho del borde */
-    border-image: var(--golden); /* Gradiente lineal como borde */
-    border-image-slice: 1; /* Establece cómo se corta la imagen de borde */
-}
+/* .switch-container.highlighted {
+    border-width: 0 0 2px 0;
+    border-image: var(--orange);
+    border-image-slice: 1;
+} */
 .switch {
     position: relative;
     display: inline-block;
@@ -89,7 +53,7 @@
     border-radius: 50%;
 }
 input:checked + .slider {
-    background: var(--golden);
+    background: var(--orange);
 }
 input:checked + .slider:before {
     transform: translateX(28px);
@@ -111,14 +75,14 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 .b-and-g.highlighted {
-    background: var(--background);
-    border-radius: 3px;
+    /* background: var(--background); */
+    /* border-radius: 3px; */
     color: white;
-    padding: 4px;
+    /* padding: 4px; */
 }
 .color.highlighted {
-    background: var(--golden);
-    border-radius: 3px;
-    color: white;
-    padding: 4px;
+    /* background: var(--golden);
+    border-radius: 3px; */
+    color: var(--yellow);
+    /* padding: 4px; */
 }
