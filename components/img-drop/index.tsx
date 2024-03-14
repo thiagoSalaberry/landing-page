@@ -4,6 +4,7 @@ import { Trash } from "react-bootstrap-icons";
 import { useCloudinary } from "@/lib/useCloudinary";
 import { CircularProgress } from "@mui/material";
 export default function ImageDrop(props:ImageDropProps) {
+    console.log(props.images)
     const [base64, setBase64] = useState<any>();
     const [imagesUrl, setImagesUrl] = useState<string[]>(props.images);
     const [hovered, setHovered] = useState<number | null>();
@@ -25,11 +26,10 @@ export default function ImageDrop(props:ImageDropProps) {
     }
     useEffect(()=>{
         if(!base64 || imagesUrl.length == 4) return;
-        console.log(base64)
         setError(false);
         setLoading(true);
         const controller = new AbortController();
-        fetch("https://landing-page-zeta-mauve.vercel.app/api/upload-image", {
+        fetch("https://landing-page-zeta-mauve.vercel.app/api/upload-image", { //https://landing-page-zeta-mauve.vercel.app
             method:"POST",
             headers: {
                 "Content-Type": "application/json"
@@ -39,7 +39,7 @@ export default function ImageDrop(props:ImageDropProps) {
         })
         .then(res => res.json())
         .then(data => {
-            setImagesUrl(prev => [...prev, data])
+            setImagesUrl(prev => [...prev, data.imgUrl])
             props.onChange(data)
         })
         .catch(()=>setError(true))

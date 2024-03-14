@@ -16,7 +16,7 @@ export default async function handler(
     if (!base64)
       return res
         .status(400)
-        .send({ message: "Se necesita la dataURL de la imagen." });
+        .send({ message: "Se necesita la base64 de la imagen." });
     const tattooImage = await cloudinary.uploader.upload(base64, {
       resource_type: "image",
       discard_original_filename: true,
