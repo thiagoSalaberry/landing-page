@@ -23,6 +23,39 @@
     color: white;
     text-decoration: none;
     font-size: 18px;
+    font-family: "Roboto Serif";
+    cursor: pointer;
+}
+.shop-container {
+    justify-self: flex-end;
+    position: relative;
+    transition: all 1s;
+}
+.tooltip-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.tooltip-triangle {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, .3);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.advise {
+    background: rgba(255, 255, 255, .3);
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+.tooltip-container.visible {
+    opacity: 1;
 }
 .link:first-child {
     justify-self: flex-end;

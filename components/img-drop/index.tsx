@@ -40,7 +40,7 @@ export default function ImageDrop(props:ImageDropProps) {
         .then(res => res.json())
         .then(data => {
             setImagesUrl(prev => [...prev, data.imgUrl])
-            props.onChange(data)
+            props.onChange(data.imgUrl)
         })
         .catch(()=>setError(true))
         .finally(()=>setLoading(false));
