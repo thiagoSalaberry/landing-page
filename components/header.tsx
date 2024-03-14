@@ -10,7 +10,6 @@ const HeaderStyled = styled.div`
 
   width: 100%;
   border-bottom: 1px solid;
-  backdrop-filter: blur(5px);
 
   .header__logo {
     margin: 0 1rem;

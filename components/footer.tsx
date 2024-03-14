@@ -9,7 +9,7 @@ import Navegation from "@/ui/atoms/navegation.atom";
 const FooterStyled = styled.footer`
   .footer__content {
     padding: 5rem 1rem;
-    maring: 0 auto;
+    margin: 0 auto;
     display: grid;
 
     gap: 2rem;
