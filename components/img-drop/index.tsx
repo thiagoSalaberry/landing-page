@@ -29,7 +29,7 @@ export default function ImageDrop(props:ImageDropProps) {
         setError(false);
         setLoading(true);
         const controller = new AbortController();
-        fetch("https://localhost:3000/api/upload-image", {
+        fetch("https://landing-page-zeta-mauve.vercel.app/api/upload-image", {
             method:"POST",
             headers: {
                 "Content-Type": "application/json"

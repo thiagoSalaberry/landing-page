@@ -5,6 +5,7 @@ import ArrowButton from "@/components/arrow-button";
 import styles from "./home.module.css";
 import Form from "@/components/form";
 import Logo from "@/components/logo";
+import { useEffect, useState } from "react";
 export default function Home() {
   return (
     <main className={styles["home-page"]}>

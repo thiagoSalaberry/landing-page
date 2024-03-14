@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./calendar.module.css";
-import dateFns, { isSunday, startOfMonth, endOfMonth, eachDayOfInterval, getMonth, isPast, isToday, isEqual, isSameMonth } from "date-fns";
+import { isSunday, startOfMonth, endOfMonth, eachDayOfInterval, getMonth, isPast, isToday, isEqual, isSameMonth } from "date-fns";
 import { formatDate } from "@/lib/formatDate";
 export default function Calendar(props: Calendar) {
     const months:string[] = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
