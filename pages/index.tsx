@@ -1,7 +1,9 @@
-import ImageSlider from "@/components/image-slider"
+import GallerySection from "@/components/gallery.section";
+import ImageSlider from "@/components/image-slider";
 import Link from "next/link";
-import { imagesList } from "@/components/image-slider/images"
-import ArrowButton from "@/components/arrow-button";
+import { imagesList } from "@/components/image-slider/images";
+import ServiceSection from "@/components/service.section";
+;
 import styles from "./home.module.css";
 import Form from "@/components/form";
 import Logo from "@/components/logo";
@@ -22,11 +24,14 @@ export default function Home() {
         <Link href={"/ashee"} className={styles["link"]}>PORTFOLIO</Link>
       </header>
       <section className={styles["welcome"]}>
-        <ImageSlider imagesList={imagesList}/>
+        {/* <GallerySection /> */}
+      <div style={{ padding: "5rem" }}></div>
+      <ServiceSection />
+      {/* <ImageSlider imagesList={imagesList} /> */}
       </section>
       <section className={styles["form-section"]}>
         <Form/>
       </section>
     </main>
-  )
+  );
 }
