@@ -1,6 +1,4 @@
-import ImageSlider from "@/components/image-slider"
 import Link from "next/link";
-import { imagesList } from "@/components/image-slider/images"
 import ArrowButton from "@/components/arrow-button";
 import styles from "./home.module.css";
 import Form from "@/components/form";
@@ -14,7 +12,7 @@ export default function Home() {
   const [hovered, setHovered] = useState(false);
   return (
     <main className={styles["home-page"]}>
-      <header className={styles["home-header"]}>
+      {/* <header className={styles["home-header"]}>
         <div className={styles["shop-container"]}>
           <p className={styles["link"]}  onMouseEnter={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)}>SHOP</p>
           <div className={`${styles["tooltip-container"]} ${hovered ? styles["visible"] : ""}`}>
@@ -24,19 +22,15 @@ export default function Home() {
         </div>
         <Logo size={45}/>
         <Link href={"/ashee"} className={styles["link"]}>PORTFOLIO</Link>
-      </header>
+      </header> */}
       <section className={styles["welcome"]}>
         <ImageSlider imagesList={imagesList}/>
       </section>
+      <ServiceSection />
+      <GallerySection />
       <section className={styles["form-section"]}>
         <Form/>
       </section>
-      <div>
-        {/* <GallerySection /> */}
-        <div style={{ padding: "5rem" }}></div>
-        <ServiceSection />
-        {/* <ImageSlider imagesList={imagesList} /> */}
-      </div>
     </main>    
   );
 }
