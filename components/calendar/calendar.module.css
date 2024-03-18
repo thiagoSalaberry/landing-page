@@ -1,0 +1,184 @@
+.calendar{
+    display: flex ;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+.month-display {
+    display: flex;
+    color: #838383;
+    border: solid 2px #838383;
+    width: fit-content;
+    border-radius: 8px;
+    align-items: center;
+    height: 40px;
+    padding: 5px 0;
+    overflow: hidden;
+}
+.prev-month, .next-month {
+    background: none;
+    border: none;
+    color: #838383;
+    width: 35px;
+    height: 36px;
+    cursor: pointer;
+}
+.prev-month:active, .next-month:active {
+    background-color: #505050;
+}
+.divider {
+    width: 1px;
+    height: 100%;
+    background: #838383;
+}
+.current-month {
+    padding: 0 10px;
+}
+.week-days{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: 5px;
+}
+.week-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    justify-self: center;
+    align-self: center;
+    color: #8e8e8e;
+}
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    width: 100%;
+}
+.day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    justify-self: center;
+    align-self: center;
+    transition: all .05s;
+    border: solid 1px #505050;
+    color: #8e8e8e;
+    cursor: pointer;
+}
+.day.taken {
+    color: #252525;
+    background: #c54e4e;
+    border: none;
+    cursor: inherit;
+}
+.day.gone {
+    color: #8e8e8e;
+    background: #505050;
+    cursor: inherit;
+}
+.chosen {
+    color: #8e8e8e;
+    text-align: center;
+    margin-top: 20px;
+}
+.new {
+    color: #8e8e8e;
+}
+.day.Mon {
+    grid-column: 1;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day.Tue {
+    grid-column: 2;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day.Wed {
+    grid-column: 3;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day.Thu {
+    grid-column: 4;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day.Fri {
+    grid-column: 5;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day.Sat {
+    grid-column: 6;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day.Sun {
+    grid-column: 7;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day.gone {
+    border: none;
+    color: #8e8e8e;
+}
+.day.today {
+    color: white;
+    border: none;
+    background: none;
+}
+.day.selected {
+    color: white;
+    background: #57CA70;
+    border: none;
+}
+.day.prev-month, .day.next-month {
+    background: none;
+    border: none;
+    color: #505050;
+    cursor: inherit;
+}
+.error-message {
+    color: var(--red);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+}

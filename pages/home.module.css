@@ -1,0 +1,93 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    position: relative;
+}
+.home-header {
+    /* background-color: rgba(66, 66, 66, 0.3); */
+    border-bottom: 1px solid rgba(255, 255, 255, .25);
+    width: 100%;
+    gap: 15px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 5px;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+}
+.link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: "Roboto Serif";
+    cursor: pointer;
+}
+.shop-container {
+    justify-self: flex-end;
+    position: relative;
+    transition: all 1s;
+}
+.tooltip-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.tooltip-triangle {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, .3);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.advise {
+    background: rgba(255, 255, 255, .3);
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+.tooltip-container.visible {
+    opacity: 1;
+}
+.link:first-child {
+    justify-self: flex-end;
+}
+.welcome {
+    width: 100%;
+}
+.welcome-texts {
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(66, 66, 66, 0.3);
+}
+.welcome-title {
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    line-height: 90px;
+}
+.welcome-desc {
+    font-size: 18px;
+    color: #ddd;
+    text-align: center;
+    font-weight: 400;
+
+}
+.welcome-button {
+    margin-top: 50px;
+}
+.form-section {
+    width: 100%;
+}
