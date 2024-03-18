@@ -3,6 +3,7 @@ type Img = {
 };
 type ImageSliderProps = {
   imagesList: Img[];
+  onClick: () => void;
 };
 type InputFieldProps = {
   type: "text" | "password" | "number" | "email";

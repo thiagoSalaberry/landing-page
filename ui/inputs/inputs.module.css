@@ -5,7 +5,8 @@
     width: 100%;
 }
 .input-label {
-    color: white;
+    color: white; /* Dark theme */
+    color: rgb(15, 15, 15);
     font-family: "Poppins";
     font-weight: 400;
     display: flex;
@@ -19,7 +20,10 @@
     border: none;
     padding: 10px;
     color: white;
-    border: 2px solid #505050;
+    color: rgb(15, 15, 15); /* Dark theme */
+    font-weight: 500;
+    border: 2px solid #505050; /* Dark theme */
+    border: 2px solid #dddddd;
     border-radius: 8px;
     font-size: 18px;
     transition: all .1s;
@@ -58,7 +62,8 @@
 .textarea:-webkit-autofill:hover, 
 .textarea:-webkit-autofill:focus, 
 .textarea:-webkit-autofill:active {
-    -webkit-text-fill-color: white !important; /* Color del texto */
+    -webkit-text-fill-color: white !important; /* Color del texto */ /* Dark theme */
+    -webkit-text-fill-color: rgba(15, 15, 15, 1) !important; /* Color del texto */
     -webkit-box-shadow: 0 0 0px 1000px transparent inset !important; /* Evitar el fondo de color */
     transition: background-color 5000s ease-in-out 0s; /* Añadir transición si es necesario */
 }
