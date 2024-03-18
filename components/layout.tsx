@@ -4,7 +4,6 @@ import { Footer } from "./footer";
 
 const LayoutStyled = styled.div`
   main {
-    max-width: 1536px;
     margin: 0 auto;
   }
 `;

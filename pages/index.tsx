@@ -10,6 +10,12 @@ import { imagesList } from "@/components/image-slider/images";
 import ServiceSection from "@/components/service.section";
 export default function Home() {
   const [hovered, setHovered] = useState(false);
+  const scrollToSection = () => {
+    const formSection = document.getElementById("form-section");
+    if(formSection) {
+      formSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }
   return (
     <main className={styles["home-page"]}>
       {/* <header className={styles["home-header"]}>
@@ -24,11 +30,11 @@ export default function Home() {
         <Link href={"/ashee"} className={styles["link"]}>PORTFOLIO</Link>
       </header> */}
       <section className={styles["welcome"]}>
-        <ImageSlider imagesList={imagesList}/>
+        <ImageSlider onClick={scrollToSection} imagesList={imagesList}/>
       </section>
       <ServiceSection />
       <GallerySection />
-      <section className={styles["form-section"]}>
+      <section className={styles["form-section"]} id="form-section">
         <Form/>
       </section>
     </main>    
