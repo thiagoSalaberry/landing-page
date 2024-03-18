@@ -8,6 +8,12 @@ import Logo from "@/components/logo";
 import { useEffect, useState } from "react";
 export default function Home() {
   const [hovered, setHovered] = useState(false);
+  const scrollToSection = () => {
+    const section = document.getElementById("form-section");
+    if(section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
   return (
     <main className={styles["home-page"]}>
       <header className={styles["home-header"]}>
@@ -19,12 +25,13 @@ export default function Home() {
           </div>
         </div>
         <Logo size={45}/>
-        <Link href={"/ashee"} className={styles["link"]}>PORTFOLIO</Link>
+        <Link href={"/ashee"} className={styles["link"]}>GALERÍA</Link>
       </header>
+      {/* <button onClick={scrollToSection}>click</button> */}
       <section className={styles["welcome"]}>
-        <ImageSlider imagesList={imagesList}/>
+        <ImageSlider onClick={scrollToSection} imagesList={imagesList}/>
       </section>
-      <section className={styles["form-section"]}>
+      <section className={styles["form-section"]} id="form-section">
         <Form/>
       </section>
     </main>

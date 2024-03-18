@@ -4,6 +4,7 @@ import ArrowButton from "@/components/arrow-button"
 export default function ImageSlider(props:ImageSliderProps) {
     const [x, setX] = useState<number>(-100);
     const containerRef = useRef<HTMLDivElement>(null);
+    const [hovered, setHovered] = useState(1);
     const handleMove = (op: "more" | "less") => {
         if(op == "more" && x == 0) {
             setX(-200)
@@ -28,12 +29,13 @@ export default function ImageSlider(props:ImageSliderProps) {
     }, [x])
     return (
         <div className={styles["slider"]}>
-            <div ref={containerRef} className={styles["img-container"]}>
+            {/* Mobile */}
+            <div ref={containerRef} className={`${styles["img-container"]} ${styles["mobile"]}`}>
                 {props.imagesList.map((img, index) => {
                     return <img key={index} className={styles["img"]} src={img.src} alt="image.jpg" />
                 })}
             </div>
-            <div className={styles["content"]}>
+            <div className={`${styles["content"]} ${styles["mobile"]}`}>
                 <div className={styles["arrow-left"]}>
                     <ArrowButton onClick={()=>handleMove("more")} color="white" size={8} invert={true}/>
                 </div>
@@ -46,9 +48,26 @@ export default function ImageSlider(props:ImageSliderProps) {
                     })}
                 </div>
                 <h1 className={styles["welcome-title"]}>TEOXYS TATTOO</h1>
-                <p className={styles["welcome-desc"]}>Nuevo hero</p>
-                <button className={styles["welcome-button"]}>Agendar turno</button>
+                <p className={styles["welcome-desc"]}>Puntillismo | Tradicional</p>
+                <button className={styles["welcome-button"]} onClick={props.onClick}>Agendar turno</button>
             </div>
+            {/* Mobile */}
+            {/* Desktop */}
+            <div className={`${styles["hero-content"]} ${styles["desktop"]}`}>
+                <h1 className={styles["hero-title"]}>TEOXYS TATTOO</h1>
+                <p className={styles["hero-desc"]}>Puntillismo | Tradicional</p>
+                <button className={styles["hero-button"]} onClick={props.onClick}>Agendar turno</button>
+            </div>
+            <div className={`${styles["hero-imgs-container"]} ${styles["desktop"]}`}>
+                {props.imagesList.map((img, index) => {
+                    return (
+                        <div onMouseEnter={()=>setHovered(index)} className={`${styles["hero-img-container"]} ${hovered == index ? styles["actual"] : ""}`}>
+                            <img key={index} className={styles["hero-img"]} src={img.src} alt="image.jpg"/>
+                        </div>
+                    )
+                })}
+            </div>
+            {/* Desktop */}
         </div>
     )
 }
