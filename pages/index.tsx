@@ -6,6 +6,10 @@ import styles from "./home.module.css";
 import Form from "@/components/form";
 import Logo from "@/components/logo";
 import { useEffect, useState } from "react";
+import GallerySection from "@/components/gallery.section";
+import ImageSlider from "@/components/image-slider";
+import { imagesList } from "@/components/image-slider/images";
+import ServiceSection from "@/components/service.section";
 export default function Home() {
   const [hovered, setHovered] = useState(false);
   return (
@@ -27,6 +31,12 @@ export default function Home() {
       <section className={styles["form-section"]}>
         <Form/>
       </section>
-    </main>
-  )
+      <div>
+        {/* <GallerySection /> */}
+        <div style={{ padding: "5rem" }}></div>
+        <ServiceSection />
+        {/* <ImageSlider imagesList={imagesList} /> */}
+      </div>
+    </main>    
+  );
 }
