@@ -1,13 +1,11 @@
 import ImageSlider from "@/components/image-slider"
 import Link from "next/link";
-import { imagesList } from "@/components/image-slider/images"
 import ArrowButton from "@/components/arrow-button";
 import styles from "./home.module.css";
 import Form from "@/components/form";
 import Logo from "@/components/logo";
 import { useEffect, useState } from "react";
 import GallerySection from "@/components/gallery.section";
-import ImageSlider from "@/components/image-slider";
 import { imagesList } from "@/components/image-slider/images";
 import ServiceSection from "@/components/service.section";
 export default function Home() {
@@ -20,7 +18,7 @@ export default function Home() {
   }
   return (
     <main className={styles["home-page"]}>
-      <header className={styles["home-header"]}>
+      {/* <header className={styles["home-header"]}>
         <div className={styles["shop-container"]}>
           <p className={styles["link"]}  onMouseEnter={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)}>SHOP</p>
           <div className={`${styles["tooltip-container"]} ${hovered ? styles["visible"] : ""}`}>
@@ -30,20 +28,15 @@ export default function Home() {
         </div>
         <Logo size={45}/>
         <Link href={"/ashee"} className={styles["link"]}>GALERÍA</Link>
-      </header>
-      {/* <button onClick={scrollToSection}>click</button> */}
+      </header> */}
       <section className={styles["welcome"]}>
         <ImageSlider onClick={scrollToSection} imagesList={imagesList}/>
       </section>
+      <ServiceSection />
+      <GallerySection />
       <section className={styles["form-section"]} id="form-section">
         <Form/>
       </section>
-      <div>
-        {/* <GallerySection /> */}
-        <div style={{ padding: "5rem" }}></div>
-        <ServiceSection />
-        {/* <ImageSlider imagesList={imagesList} /> */}
-      </div>
     </main>    
   );
 }

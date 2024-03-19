@@ -5,12 +5,13 @@ const LinkStyled = styled(Link)`
   position: relative;
   display: inline-block;
   color: #fff;
+  color: rgb(15,15,15);
 
   vertical-align: middle;
   width: auto;
   margin: 0;
 
-  font-size: 13px;
+  font-size: 18px;
   line-height: 2em;
 
   letter-spacing: 0.2em;
@@ -20,7 +21,7 @@ const LinkStyled = styled(Link)`
   text-transform: uppercase;
   border-radius: 0;
   outline: 0;
-
+  justify-self: flex-end;
   box-sizing: border-box;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   padding: 9px 5px 8px 5px;

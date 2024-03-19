@@ -9,7 +9,7 @@ const HeaderStyled = styled.div`
   padding: 0.5rem;
 
   width: 100%;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid rgb(15,15,15);
 
   .header__logo {
     margin: 0 1rem;

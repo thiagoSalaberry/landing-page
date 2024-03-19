@@ -17,8 +17,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Roboto Serif";
-  font-family: "Poppins";
 }
 
 html,
@@ -27,12 +25,9 @@ body {
   overflow-x: hidden;
   background: var(--background);
   background: var(--white-gradient);
-  font-family: "Roboto Slab";
+  font-family: "Roboto Serif";
   background-color: rgb(0, 0, 0);
   color: #fff;
-}
-body {
-  background: url("../assets/noise-radio.jpg");
 }
 .transition-all {
   transition-property: all;
