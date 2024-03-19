@@ -3,8 +3,10 @@ import Image from "next/image";
 import LogoIcon from "@/assets/icons/logo.svg";
 import Navegation from "@/ui/atoms/navegation.atom";
 
-const HeaderStyled = styled.div`
+const HeaderStyled = styled.header`
   position: absolute;
+  top: 0;
+  background: none;
   z-index: 9;
   padding: 0.5rem;
 
@@ -26,7 +28,7 @@ const HeaderStyled = styled.div`
   .header__navegation {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    place-items: center;
+    /* place-items: center; */
 
     width: fit-content;
     margin: 0 auto;

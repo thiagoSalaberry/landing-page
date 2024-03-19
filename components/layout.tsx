@@ -3,6 +3,7 @@ import { Header } from "./header";
 import { Footer } from "./footer";
 
 const LayoutStyled = styled.div`
+  position: relative;
   main {
     margin: 0 auto;
   }

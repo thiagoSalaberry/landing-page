@@ -17,8 +17,10 @@ const FooterStyled = styled.footer`
   }
 
   .footer__sections {
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     span {
       letter-spacing: 5px;
