@@ -28,6 +28,7 @@ body {
   font-family: "Roboto Serif";
   background-color: rgb(0, 0, 0);
   color: #fff;
+  scroll-behavior: smooth;
 }
 .transition-all {
   transition-property: all;

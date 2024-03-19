@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Collage from "./collage.component";
 
 const GalleryStyled = styled.section`
+  height: 100vh;
   .gallery__info {
     margin: 0 auto;
     margin-bottom: 3rem;
@@ -19,11 +20,12 @@ const GalleryStyled = styled.section`
       letter-spacing: 1px;
     }
   }
+  color: rgb(15,15,15);
 `;
 
 const GallerySection = () => {
   return (
-    <GalleryStyled>
+    <GalleryStyled id="gallery-section">
       <div className="gallery__info">
         <h2 className="info__title">ART GALLERY</h2>
         <p className="info__quote">Each tattoo tells a unique story, what will be yours?</p>

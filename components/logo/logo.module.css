@@ -1,0 +1,11 @@
+.logo {
+    margin: 0 20px;
+}
+@media (min-width: 1280px) {
+    .logo {
+        margin: 0 30px;
+    }
+    .rect {
+        fill: rgb(15, 15, 15);
+    }
+}
