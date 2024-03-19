@@ -27,6 +27,17 @@ body {
   overflow-x: hidden;
   background: var(--background);
   background: var(--white-gradient);
+  font-family: "Roboto Slab";
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+}
+body {
+  background: url("../assets/noise-radio.jpg");
+}
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 /*
 #ECCE8E
