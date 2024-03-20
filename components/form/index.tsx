@@ -258,41 +258,42 @@ export default function Form() {
         "RESUMEN",
     ];
     return (
-        <section className={styles["form-section"]}>
-                <div className={styles["steps-section"]}>
+        <section className={styles["form-section"]} id="form-section">
+            <h2 className={styles["form-section-title"]}>AGENDAR TURNO</h2>
+            <div className={styles["steps-section"]}>
+                <div className={styles["steps-container"]}>
+                    {formSteps.slice(0,6).map((_, index) => {
+                        return <p key={index} className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{index + 1}</p>
+                    })}
+                </div>
+            </div>
+            <form className={styles["form"]} onSubmit={handleSubmit}>
+                <div className={styles["steps-section-desktop"]}>
                     <div className={styles["steps-container"]}>
                         {formSteps.slice(0,6).map((_, index) => {
-                            return <p key={index} className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{index + 1}</p>
+                            return (
+                                <div key={index} className={styles["step-container"]}>
+                                    <p className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{index + 1}</p>
+                                    <p className={`${styles["step-number"]}`}>Step {index + 1}</p>
+                                    <p className={`${styles["step-label"]}`}>{stepText[index]}</p>
+                                </div>
+                            )
                         })}
                     </div>
                 </div>
-                <form className={styles["form"]} onSubmit={handleSubmit}>
-                    <div className={styles["steps-section-desktop"]}>
-                        <div className={styles["steps-container"]}>
-                            {formSteps.slice(0,6).map((_, index) => {
-                                return (
-                                    <div key={index} className={styles["step-container"]}>
-                                        <p className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{index + 1}</p>
-                                        <p className={`${styles["step-number"]}`}>Step {index + 1}</p>
-                                        <p className={`${styles["step-label"]}`}>{stepText[index]}</p>
-                                    </div>
-                                )
-                            })}
-                        </div>
+                <div className={styles["form-header"]}>
+                    {formHeaders[currentStep]}
+                </div>
+                <div className={styles["inputs-container"]}>
+                    {formSteps[currentStep]}
+                </div>
+                {currentStep > 5 ? null : (
+                    <div className={styles["buttons-container"]}>
+                        {currentStep > 0 ? <button type="button" onClick={()=>handleStep("back")} className={styles["back-button"]}>Volver</button> : null}
+                        <button type="button" onClick={()=>handleStep("next")} className={`${styles["next-button"]} ${currentStep == 5 && !checked ? styles["disabled"] : ""}`}>{currentStep == 5 ? "Confirmar" : "Siguiente"}</button>
                     </div>
-                    <div className={styles["form-header"]}>
-                        {formHeaders[currentStep]}
-                    </div>
-                    <div className={styles["inputs-container"]}>
-                        {formSteps[currentStep]}
-                    </div>
-                    {currentStep > 5 ? null : (
-                        <div className={styles["buttons-container"]}>
-                            {currentStep > 0 ? <button type="button" onClick={()=>handleStep("back")} className={styles["back-button"]}>Volver</button> : null}
-                            <button type="button" onClick={()=>handleStep("next")} className={`${styles["next-button"]} ${currentStep == 5 && !checked ? styles["disabled"] : ""}`}>{currentStep == 5 ? "Confirmar" : "Siguiente"}</button>
-                        </div>
-                        )}
-                </form>
+                    )}
+            </form>
         </section>
     )
 }

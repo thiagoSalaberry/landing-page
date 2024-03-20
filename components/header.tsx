@@ -40,7 +40,7 @@ export const Header = () => {
       <nav className="header__navegation">
         <Navegation>SHOP</Navegation>
         <Logo size={40}/>
-        <Navegation>GALLERY</Navegation>
+        <Navegation href="#gallery-section">GALERÍA</Navegation>
       </nav>
     </HeaderStyled>
   );

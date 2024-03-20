@@ -8,6 +8,11 @@
     align-items: center;
     padding: 0 0 40px 0;
 }
+.form-section-title {
+    color: rgb(15, 15, 15);
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+}
 .steps-section, .steps-section-desktop {
     background-color: rgb(23, 23, 23);
     background-image: url("/card-png.png");
@@ -69,8 +74,9 @@
 }
 @media (min-width: 1280px) {
     .form-section {
-        flex-direction: row;
-        padding: 80px 240px;
+        width: 100vw;
+        padding: 50px 100px;
+        gap: 30px;
     }
     .steps-section {
         display: none;

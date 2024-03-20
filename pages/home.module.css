@@ -67,6 +67,9 @@
 @media (min-width: 1280px) {
     .welcome {
         width: 80%;
+        width: 100vw;
+        padding: 0 100px;
+        /* background: rgb(45, 69, 106); */
     }
     .home-header {
         border-bottom: 1px solid rgba(15, 15, 15, .25);

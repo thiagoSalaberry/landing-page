@@ -14,10 +14,9 @@
     display: grid;
     justify-content: space-between;
     align-items: center;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto auto;
     gap: 50px;
     height: 100vh;
-    /* padding: 0 50px; */
   }
   .hero-content {
     display: flex;

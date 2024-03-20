@@ -19,7 +19,7 @@ const LinkStyled = styled(Link)`
   line-height: 2em;
 
   letter-spacing: 0.2em;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
 
   text-transform: uppercase;
@@ -60,7 +60,7 @@ const LinkStyled = styled(Link)`
   }
   .tooltip__container {
     position: absolute;
-    top: 75%;
+    top: 90%;
     left: 0;
     width: 100%;
     display: flex;
@@ -76,13 +76,20 @@ const LinkStyled = styled(Link)`
       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
   .tooltip__advise {
-      background: var(--white);
-      border: solid 1px rgb(15,15,15);
+      background: none;
+      border: solid 1px rgb(255,255,255);
       padding: 0px 5px;
       border-radius: 5px;
       color: white;
-      color: rgba(15, 15, 15, 1);
+      color: rgba(255, 255, 255, 1);
       font-size: 12px;
+    }
+    @media (min-width: 1280px) {
+      .tooltip__advise {
+        background: var(--white);
+        border: solid 1px rgb(15,15,15);
+        color: rgba(15, 15, 15, 1);
+    }
   }
   .tooltip__container.visible {
     opacity: 1;
@@ -98,11 +105,11 @@ interface NavegationProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> 
 const Navegation: React.FC<NavegationProps> = ({ children, className = "", href = "", onClick, ...props }) => {
   const [visible, setVisible] = useState(false);
   return (
-    <LinkStyled href={children == "GALLERY" ? "#gallery-section" : ""} onMouseEnter={()=>setVisible(true)} onMouseLeave={()=>setVisible(false)} className={className}>
+    <LinkStyled href={href} onMouseEnter={()=>setVisible(true)} onMouseLeave={()=>setVisible(false)} className={className}>
       <span>{children}</span>
       {children != "SHOP" ? null : (
         <div className={`${!visible ? "tooltip__container" : "tooltip__container visible"}`}>
-          <div className="tooltip__triangle"></div>
+          {/* <div className="tooltip__triangle"></div> */}
           <p className="tooltip__advise">PROXIMAMENTE</p>
         </div>
       )}

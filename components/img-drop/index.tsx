@@ -47,6 +47,7 @@ export default function ImageDrop(props:ImageDropProps) {
         setHovered(null)
         return () => controller.abort()
     }, [base64]);
+    console.log(base64)
     return (
         <div className={styles["img-drop-container"]}>
             {imagesUrl.map((_, index) => {

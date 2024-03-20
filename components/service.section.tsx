@@ -6,8 +6,23 @@ import flowerImg from "@/assets/tattoo/flower.png";
 import slideImg from "@/assets/slide.png";
 
 const ServiceStyled = styled.section`
-  margin: 3rem auto;
-
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  /* background: var(--background); */
+  /* background: rgb(45, 69, 106); */
+  /* background: rgb(45, 69, 106); */
+  h2 {
+    color: rgb(15,15,15);
+    text-align: center;
+  }
+  height: 100vh;
+  @media (min-width: 1280px) {
+    height: 50vh;
+  }
   .service__list {
     display: flex;
     flex-wrap: wrap;
@@ -29,7 +44,8 @@ const ServiceSection = () => {
   ];
 
   return (
-    <ServiceStyled>
+    <ServiceStyled id="services-section">
+      <h2>SERVICIOS</h2>
       <ul className="service__list">
         {cardInfo.map((item, index) => (
           <li key={index}>
@@ -46,7 +62,9 @@ const CardStyled = styled.div`
   padding: 1rem 2rem 5rem 2rem;
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
   background: no-repeat url(${slideImg.src});
-
+  /* background: no-repeat linear-gradient(90deg, rgb(255, 193, 48) 0%, rgb(172, 79, 29) 110%); */
+  color: white;
+  color: rgb(15,15,15);
   height: 100%;
   min-width: 20rem;
   max-width: 30rem;

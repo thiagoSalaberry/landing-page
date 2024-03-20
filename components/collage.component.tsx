@@ -44,6 +44,7 @@ const CollageStyled = styled.div`
     object-fit: cover;
 
     border-radius: 0.5rem;
+    border-radius: 30px;
     pointer-events: none;
   }
 
@@ -87,35 +88,36 @@ const Collage = () => {
   return (
     <CollageStyled ref={containerRef} {...bind()}>
       <div className="transition-all gallery__column column__variant_three">
-        <img src="https://i.pinimg.com/236x/09/ae/54/09ae544b0318717817f1782aead9aad7.jpg" />
-        <img src="https://i.pinimg.com/236x/d6/ce/30/d6ce30947cb4322cdbc11a99baa1786b.jpg" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710953739/fahknyqms1tefrb50oof.jpg" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710953824/bmn3mdoghduxchajkoag.jpg" />
       </div>
 
       <div className="transition-all gallery__column column__variant_one">
-        <img src="https://i.pinimg.com/236x/f6/80/79/f68079424fdd799afd1fe9ddcaba7d5d.jpg" />
-        <img src="https://i.pinimg.com/236x/0d/fe/01/0dfe01798ee8671b7d1574f4eff55302.jpg" />
-        <img src="https://i.pinimg.com/236x/84/9a/47/849a47445e4bdbab0c4f89ed96741dd3.jpg" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710789657/jl20ikw12ykvd3he3oca.jpg" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710953783/idbogelvjjbdrjn2laiw.jpg" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710953844/ecogiytafnxvzfglgdn2.jpg" />
       </div>
 
       <div className="transition-all gallery__column column__variant_two">
-        <img src="https://i.pinimg.com/236x/9b/bc/48/9bbc489a9148ea94ad73b0b8cc1139e7.jpg" />
-        <img src="https://i.pinimg.com/236x/7b/8d/5a/7b8d5adc47c94902d8b6e7256bf78a32.jpg" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710955902/azeifyovi1fzan8mdynq.jpg" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710956012/wt27ewy1p6jwrnt5oft0.jpg" />
       </div>
 
       <div className="transition-all gallery__column column__variant_three">
-        <img src="https://i.pinimg.com/236x/12/2a/04/122a042be8c3c07a6ae3269863321698.jpg" />
-        <img src="https://i.pinimg.com/236x/94/4f/7f/944f7fb36ce5a4eed7dd2e1833b25ad5.jpg" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1709819712/i6qejvynniylisl7pa7s.jpg" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710953804/vbpnv8i9pkw7uaozv4pz.jpg" /> 
       </div>
 
       <div className="transition-all gallery__column column__variant_one">
-        <img src="https://i.pinimg.com/236x/6f/54/81/6f54812418e9592593e5dc25a6194b30.jpg" />
-        <img src="https://i.pinimg.com/236x/2a/23/05/2a23050283e78df4ba7700329dc57291.jpg" />
-        <img src="https://i.pinimg.com/236x/93/36/f1/9336f1eff199316ca4b79a153ada6f27.jpg" />
+      
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710955966/fknxfujt1evyslyb9mcz.png" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710956605/alp06uxfwwf4yfz8xmyt.png" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710956586/xws6cmoegtirri1dxj0b.png" />
       </div>
 
       <div className="transition-all gallery__column column__variant_two">
-        <img src="https://i.pinimg.com/236x/fa/8b/87/fa8b8702d0253392e3acc4a602cd3f08.jpg" />
-        <img src="https://i.pinimg.com/236x/49/91/4b/49914b57e8f3488bc4d67b4019b82b15.jpg" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710956520/fhpnjojiudxfae4zyf1y.png" />
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1709819823/tfrj8fenxprjawwrisar.jpg" />
       </div>
     </CollageStyled>
   );

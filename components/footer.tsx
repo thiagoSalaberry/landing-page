@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import LogoIcon from "@/assets/icons/logo.svg";
+// import Logo from "./logo";
 import YoutubeIcon from "@/assets/icons/youtube.svg";
 import MapMarkIcon from "@/assets/icons/mapMark.svg";
 import InstagramIcon from "@/assets/icons/instagram.svg";
@@ -28,14 +29,15 @@ const FooterStyled = styled.footer`
   .quote {
     font-family: "Playfair";
     font-style: italic;
-    letter-space: 1px;
     text-align: center;
+    color: rgb(15,15,15);
   }
 
   .footer__copyright {
     border-top: solid 1px;
     padding: 2rem 0;
     text-align: center;
+    color: rgb(15,15,15);
   }
 `;
 
@@ -46,10 +48,10 @@ export const Footer = () => {
         <Image src={LogoIcon} alt={"#section_home"} />
 
         <div className="footer__sections">
-          <Navegation href="/#Section_Home">Home</Navegation>
-          <Navegation href="/#Section_Services">Services</Navegation>
-          <Navegation href="/#Section_Gallery">Gallery</Navegation>
-          <Navegation href="/#Section_Contact">Contact</Navegation>
+          <Navegation href="#home-section">Home</Navegation>
+          <Navegation href="#services-section">Servicios</Navegation>
+          <Navegation href="#gallery-section">Galeria</Navegation>
+          <Navegation href="#form-section">Contacto</Navegation>
         </div>
 
         <div>

@@ -3,6 +3,13 @@ import Collage from "./collage.component";
 
 const GalleryStyled = styled.section`
   height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 100px;
   .gallery__info {
     margin: 0 auto;
     margin-bottom: 3rem;
@@ -28,7 +35,7 @@ const GallerySection = () => {
     <GalleryStyled id="gallery-section">
       <div className="gallery__info">
         <h2 className="info__title">ART GALLERY</h2>
-        <p className="info__quote">Each tattoo tells a unique story, what will be yours?</p>
+        {/* <p className="info__quote">Each tattoo tells a unique story, what will be yours?</p> */}
       </div>
 
       <Collage />

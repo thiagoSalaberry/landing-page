@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import GallerySection from "@/components/gallery.section";
 import { imagesList } from "@/components/image-slider/images";
 import ServiceSection from "@/components/service.section";
+import Divider from "@/components/dividers";
 export default function Home() {
   const [hovered, setHovered] = useState(false);
   const scrollToSection = () => {
@@ -29,14 +30,15 @@ export default function Home() {
         <Logo size={45}/>
         <Link href={"/ashee"} className={styles["link"]}>GALERÍA</Link>
       </header> */}
-      <section className={styles["welcome"]}>
+      <section className={styles["welcome"]} id="home-section">
         <ImageSlider onClick={scrollToSection} imagesList={imagesList}/>
       </section>
+      <Divider/>
       <ServiceSection />
+      <Divider/>
       <GallerySection />
-      <section className={styles["form-section"]} id="form-section">
-        <Form/>
-      </section>
+      <Divider/>
+      <Form/>
     </main>    
   );
 }
