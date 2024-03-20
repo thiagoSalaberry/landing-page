@@ -7,7 +7,7 @@ import MapMarkIcon from "@/assets/icons/mapMark.svg";
 import InstagramIcon from "@/assets/icons/instagram.svg";
 import Navegation from "@/ui/atoms/navegation.atom";
 import Link from "next/link";
-import { Instagram, Youtube, GeoAlt } from "react-bootstrap-icons";
+import { Instagram, GeoAlt, Github, Linkedin } from "react-bootstrap-icons";
 const FooterStyled = styled.footer`
   .footer__content {
     padding: 5rem 1rem;
@@ -45,6 +45,39 @@ const FooterStyled = styled.footer`
     justify-content: space-between;
     gap: 20px;
   }
+  .devs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    column-gap: 40px;
+  }
+  .devs-container-title {
+    color: rgb(15,15,15);
+    grid-column: 1/3;
+    text-align: center;
+  }
+  .dev-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .link {
+    transition: all .1s;
+  }
+  .link:hover {
+    transform: scale(1.1);
+  }
+  .link:active {
+    transform: scale(0.97);
+  }
+  .dev-name {
+    color: rgb(15,15,15);
+    border-right: solid black 1px;
+    padding-right: 10px;
+  }
 `;
 
 export const Footer = () => {
@@ -61,11 +94,23 @@ export const Footer = () => {
         </div>
 
         <div className="links-container">
-          <Link href={"https://www.instagram.com/teoxys.tattoo/"} target="_blank"><Instagram color="black" size={28}/></Link>
-          <Link href={"https://www.google.com/maps/place/Avellaneda,+Provincia+de+Buenos+Aires/@-34.6618832,-58.3719789,16z/data=!4m6!3m5!1s0x95a3335230bd052b:0x9d632a18eea90a31!8m2!3d-34.6610756!4d-58.3669739!16zL20vMDM2eWJx?entry=ttu"} target="_blank"><GeoAlt color="black" size={28}/></Link>
-          {/* <Link href={"https://www.instagram.com/teoxys.tattoo/"} target="_blank"><Youtube color="black" size={28}/></Link> */}
+          <Link className="link" href={"https://www.instagram.com/teoxys.tattoo/"} target="_blank"><Instagram color="black" size={28}/></Link>
+          <Link className="link" href={"https://www.google.com/maps/place/Avellaneda,+Provincia+de+Buenos+Aires/@-34.6618832,-58.3719789,16z/data=!4m6!3m5!1s0x95a3335230bd052b:0x9d632a18eea90a31!8m2!3d-34.6610756!4d-58.3669739!16zL20vMDM2eWJx?entry=ttu"} target="_blank"><GeoAlt color="black" size={28}/></Link>
         </div>
         <p className="quote">Un tatuaje es más que un dibujo, es un símbolo de tu identidad.</p>
+        <div className="devs-container">
+          <p className="devs-container-title">Desarrollado por:</p>
+          <div className="dev-container">
+            <p className="dev-name">Thiago Salaberry</p>
+            <Link className="link" href={"https://github.com/thiagoSalaberry"} target="_blank"><Github color="black" size={28}/></Link>
+            <Link className="link" href={"https://www.google.com/maps/place/Avellaneda,+Provincia+de+Buenos+Aires/@-34.6618832,-58.3719789,16z/data=!4m6!3m5!1s0x95a3335230bd052b:0x9d632a18eea90a31!8m2!3d-34.6610756!4d-58.3669739!16zL20vMDM2eWJx?entry=ttu"} target="_blank"><Linkedin color="black" size={28}/></Link>
+          </div>
+          <div className="dev-container">
+            <p className="dev-name">Leonardo Fontán</p>
+            <Link className="link" href={"https://www.instagram.com/teoxys.tattoo/"} target="_blank"><Github color="black" size={28}/></Link>
+            <Link className="link" href={"https://www.google.com/maps/place/Avellaneda,+Provincia+de+Buenos+Aires/@-34.6618832,-58.3719789,16z/data=!4m6!3m5!1s0x95a3335230bd052b:0x9d632a18eea90a31!8m2!3d-34.6610756!4d-58.3669739!16zL20vMDM2eWJx?entry=ttu"} target="_blank"><Linkedin color="black" size={28}/></Link>
+          </div>
+        </div>
       </div>
 
       <p className="footer__copyright">© 2024 Teoxys Tattoo, All Rights Reserved</p>

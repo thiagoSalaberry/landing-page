@@ -70,7 +70,7 @@ const CardStyled = styled.div`
   height: 100%;
   min-width: 20rem;
   max-width: 30rem;
-
+  /* font-family: "Poppins"; */
   position: relative;
   overflow: hidden;
 

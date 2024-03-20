@@ -97,7 +97,7 @@
         grid-row: 1/4;
         border-radius: 10px;
         background-image: url("/card-png-vert.png");
-        background-image: url("/fondo3.png");
+        background-image: url("/fondo1.png");
         background-size: auto 100%;
         padding: 40px;
         justify-content: flex-start;
@@ -128,8 +128,10 @@
         grid-column: 2;
         grid-row: 1;
         color: #242424;
+        font-family: "Poppins";
     }
     .step-label {
+        font-family: "Poppins";
         grid-column: 2;
         grid-row: 2;
         color: #fff;
@@ -142,17 +144,18 @@
 }
 .header-title {
     font-family: "Roboto";
+    font-family: "Poppins";
     color: white;
     color: #FCC871;
     grid-column: 1;
     grid-row: 1;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 500;
     align-self: self-start;
 }
 .header-desc {
     color: #8e8e8e;
-    font-family: "Roboto";
+    font-family: "Poppins";
     grid-column: 1;
     grid-row: 2;
     font-size: 20px;
@@ -193,6 +196,9 @@
         padding: 12px 30px;
     }
 }
+.back-button:hover, .next-button:hover {
+    transform: scale(1.02);
+}
 .back-button:active, .next-button:active {
     transform: scale(0.97);
 }
@@ -231,6 +237,7 @@
     display: flex;
     flex-direction: column;
     gap: 7px;
+    font-family: "Poppins";
 }
 .divider {
     width: 100%;
@@ -244,18 +251,23 @@
     }
 }
 .summary-data, .total {
+    font-family: "Poppins";
     display: flex;
     width: 100%;
     justify-content: space-between;
     color: var(--grey);
-    color: rgb(15, 15, 15);
+    color: #8e8e8e;
 }
 .summary-value {
     color: var(--yellow);
+    color: rgb(50, 50, 50);
+    font-weight: 600;
     text-align: right;
 }
 .summary-button {
     color: var(--yellow);
+    color: rgb(50, 50, 50);
+    font-weight: 600;
     background: none;
     border: none;
     font-size: 16px;
@@ -268,6 +280,7 @@
     font-size: 20px;
 }
 .loading-step, .thanks-step {
+    font-family: "Poppins";
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -284,6 +297,8 @@
     font-weight: 600;
 }
 .confirm-container {
+    font-family: "Poppins";
+
     align-self: flex-end;
     display: flex;
     align-items: center;
