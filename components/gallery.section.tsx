@@ -16,9 +16,9 @@ const GalleryStyled = styled.section`
     text-align: center;
 
     .info__title {
-      font-size: 1.5rem;
+      font-size: 2rem;
       letter-spacing: 5px;
-      margin-bottom: 1rem;
+      /* margin-bottom: 1rem; */
     }
 
     .info__quote {
@@ -34,7 +34,7 @@ const GallerySection = () => {
   return (
     <GalleryStyled id="gallery-section">
       <div className="gallery__info">
-        <h2 className="info__title">ART GALLERY</h2>
+        <h2 className="info__title">GALERÍA</h2>
         {/* <p className="info__quote">Each tattoo tells a unique story, what will be yours?</p> */}
       </div>
 

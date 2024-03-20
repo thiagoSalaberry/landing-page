@@ -7,14 +7,17 @@ const CollageStyled = styled.div`
   overflow-x: scroll;
   scrollbar-width: none;
 
-  padding: 0 1rem;
+  padding: 20px;
   cursor: grab;
   user-select: none;
 
   margin: 0 auto;
   height: 100vh;
   max-height: 30rem;
-
+  background: var(--flat-white);
+  border-radius: 40px;
+  /* border: 1px solid black; */
+  box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,.25);
   .gallery__column:not(:last-child) {
     margin-right: 1rem;
   }

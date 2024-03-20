@@ -18,6 +18,8 @@ const ServiceStyled = styled.section`
   h2 {
     color: rgb(15,15,15);
     text-align: center;
+    font-size: 2rem;
+    letter-spacing: 5px;
   }
   height: 100vh;
   @media (min-width: 1280px) {
@@ -108,13 +110,13 @@ const CardStyled = styled.div`
     width: 70%;
 
     .info__title {
-      font-size: 1rem;
+      font-size: 1.3rem;
       letter-spacing: 2px;
       margin-bottom: 1rem;
     }
 
     .info__body {
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 2px;
     }
   }

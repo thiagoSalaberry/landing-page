@@ -8,6 +8,7 @@ import Calendar  from "@/components/calendar";
 import { formatDate } from "@/lib/formatDate";
 import { CircularProgress } from "@mui/material";
 import { isToday } from "date-fns";
+import { Info, Calendar4Event, FileImage, Lightbulb, Pen, JournalCheck } from "react-bootstrap-icons";
 import Router from "next/router";
 export default function Form() {
     const [form, setForm] = useState<FormProps>({
@@ -257,6 +258,14 @@ export default function Form() {
         "FECHA",
         "RESUMEN",
     ];
+    const iconsList:JSX.Element[] = [
+        <Info size={30}/>, 
+        <Lightbulb size={20}/>,
+        <Pen size={20} />, 
+        <FileImage size={20}/>,  
+        <Calendar4Event size={20} />, 
+        <JournalCheck size={20} />, 
+    ]
     return (
         <section className={styles["form-section"]} id="form-section">
             <h2 className={styles["form-section-title"]}>AGENDAR TURNO</h2>
@@ -273,8 +282,8 @@ export default function Form() {
                         {formSteps.slice(0,6).map((_, index) => {
                             return (
                                 <div key={index} className={styles["step-container"]}>
-                                    <p className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{index + 1}</p>
-                                    <p className={`${styles["step-number"]}`}>Step {index + 1}</p>
+                                    <p className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{/*index + 1*/}{iconsList[index]}</p>
+                                    <p className={`${styles["step-number"]}`}>Paso {index + 1}</p>
                                     <p className={`${styles["step-label"]}`}>{stepText[index]}</p>
                                 </div>
                             )
