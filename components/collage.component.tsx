@@ -12,14 +12,12 @@ const CollageStyled = styled.div`
   user-select: none;
 
   margin: 0 auto;
-  height: 100vh;
-  max-height: 30rem;
-  /* border-radius: 40px; */
-  /* border: 1px solid black; */
-  /* box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,.25); */
-  /* background-image: url("/fondo5.png");
-  background-repeat: no-repeat; */
-  /* background-size: 100% auto; */
+  height: 100%;
+  @media (min-width: 1280px) {
+    height: 100vh;
+    padding: 0;
+  }
+  /* max-height: 30rem; */
   .gallery__column:not(:last-child) {
     margin-right: 1rem;
   }

@@ -7,24 +7,30 @@ const GalleryStyled = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 30px;
-  padding: 0 100px;
-  .gallery__info {
-    margin: 0 auto;
-    margin-bottom: 3rem;
-    text-align: center;
-
+  justify-content: flex-start;
+  /* margin-top: -20px;
+  border-radius: 25px 25px 0 0; */
+  /* background: #747474; */
+  /* background: var(--white-gradient);
+  background: var(--white-gradient-inverse); */
+  /* box-shadow: 0 -5px 15px 0 rgba(0,0,0,.15); */
+  padding: 40px 0 60px 0;
+  gap: 40px;
+  z-index: 100;
+  .info__title {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+  }
+  @media (min-width: 1280px) {
+    padding: 0 100px;
+    height: 100vh;
+    justify-content: center;
+    gap: 30px;
+    box-shadow: none;
+    background: inherit;
+    padding: 0 100px;
     .info__title {
       font-size: 2rem;
-      letter-spacing: 5px;
-      /* margin-bottom: 1rem; */
-    }
-
-    .info__quote {
-      font-family: "Playfair";
-      font-style: italic;
-      letter-spacing: 1px;
     }
   }
   color: rgb(15,15,15);
@@ -33,10 +39,10 @@ const GalleryStyled = styled.section`
 const GallerySection = () => {
   return (
     <GalleryStyled id="gallery-section">
-      <div className="gallery__info">
         <h2 className="info__title">GALERÍA</h2>
-        {/* <p className="info__quote">Each tattoo tells a unique story, what will be yours?</p> */}
-      </div>
+      {/* <div className="gallery__info">
+        <p className="info__quote">Each tattoo tells a unique story, what will be yours?</p>
+      </div> */}
 
       <Collage />
     </GalleryStyled>

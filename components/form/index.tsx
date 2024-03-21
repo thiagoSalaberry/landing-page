@@ -272,7 +272,7 @@ export default function Form() {
             <div className={styles["steps-section"]}>
                 <div className={styles["steps-container"]}>
                     {formSteps.slice(0,6).map((_, index) => {
-                        return <p key={index} className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{index + 1}</p>
+                        return <p key={index} className={`${styles["step"]} ${currentStep == index ? styles["filled"] : styles["empty"]}`}>{iconsList[index]}</p>
                     })}
                 </div>
             </div>

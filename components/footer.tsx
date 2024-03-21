@@ -9,9 +9,11 @@ import Navegation from "@/ui/atoms/navegation.atom";
 import Link from "next/link";
 import { Instagram, GeoAlt, Github, Linkedin } from "react-bootstrap-icons";
 const FooterStyled = styled.footer`
-  .footer__content {
-    padding: 5rem 1rem;
-    margin: 0 auto;
+    width: 100%;
+    .footer__content {
+    width: 100%;
+    padding: 40px 20px;
+    /* margin: 0 auto; */
     display: grid;
 
     gap: 2rem;
@@ -47,12 +49,11 @@ const FooterStyled = styled.footer`
   }
   .devs-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    column-gap: 40px;
+    row-gap: 10px;
   }
   .devs-container-title {
     color: rgb(15,15,15);
@@ -63,6 +64,9 @@ const FooterStyled = styled.footer`
     display: flex;
     gap: 10px;
     align-items: center;
+  }
+  .dev-container:last-child {
+    grid-row: 3;
   }
   .link {
     transition: all .1s;
@@ -77,6 +81,20 @@ const FooterStyled = styled.footer`
     color: rgb(15,15,15);
     border-right: solid black 1px;
     padding-right: 10px;
+  }
+  @media (min-width: 1280px) {
+      .devs-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      column-gap: 40px;
+    }
+      .dev-container:last-child {
+      grid-row: 2;
+    }
   }
 `;
 
@@ -107,7 +125,7 @@ export const Footer = () => {
           </div>
           <div className="dev-container">
             <p className="dev-name">Leonardo Fontán</p>
-            <Link className="link" href={"https://www.instagram.com/teoxys.tattoo/"} target="_blank"><Github color="black" size={28}/></Link>
+            <Link className="link" href={"https://www.linkedin.com/in/leonardo-fontan/"} target="_blank"><Github color="black" size={28}/></Link>
             <Link className="link" href={"https://www.google.com/maps/place/Avellaneda,+Provincia+de+Buenos+Aires/@-34.6618832,-58.3719789,16z/data=!4m6!3m5!1s0x95a3335230bd052b:0x9d632a18eea90a31!8m2!3d-34.6610756!4d-58.3669739!16zL20vMDM2eWJx?entry=ttu"} target="_blank"><Linkedin color="black" size={28}/></Link>
           </div>
         </div>

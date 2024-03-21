@@ -5,6 +5,7 @@
   --red: #dc4545;
   --white: #f5f5f5;
   --white-gradient: linear-gradient(135deg, rgb(250, 249, 243) 0%, rgb(225, 222, 222) 100%);
+  --white-gradient-inverse: linear-gradient(225deg, rgb(225, 222, 222) 0%, rgb(250, 249, 243) 100%);
   --grey: #d6d6d6;
   --flat-orange: #f95738;
   --otro-golden: linear-gradient(315deg, #ffe38d 0%, #e4a647 100%);

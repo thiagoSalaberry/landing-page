@@ -6,6 +6,7 @@ const LinkStyled = styled(Link)`
   cursor: pointer;
   position: relative;
   display: inline-block;
+  color: rgb(15,15,15);
   color: #fff;
   @media (min-width: 1280px) {
     color: rgb(15,15,15);
