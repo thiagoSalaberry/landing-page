@@ -1,6 +1,6 @@
-import { useRef } from "react";
-import { useGesture } from "react-use-gesture";
-import styled from "styled-components";
+import { useRef } from 'react';
+import { useGesture } from 'react-use-gesture';
+import styled from 'styled-components';
 
 const CollageStyled = styled.div`
   display: flex;
@@ -14,12 +14,9 @@ const CollageStyled = styled.div`
   margin: 0 auto;
   height: 100vh;
   max-height: 30rem;
-  /* border-radius: 40px; */
-  /* border: 1px solid black; */
-  /* box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,.25); */
-  /* background-image: url("/fondo5.png");
-  background-repeat: no-repeat; */
-  /* background-size: 100% auto; */
+
+  width: 100%;
+
   .gallery__column:not(:last-child) {
     margin-right: 1rem;
   }
@@ -33,16 +30,6 @@ const CollageStyled = styled.div`
     border-radius: 1rem;
   }
 
-  .column__variant_one {
-    grid-template-rows: 1fr calc(40% - 2rem) 1fr;
-  }
-  .column__variant_two {
-    grid-template-rows: calc(60% - 2rem) 1fr;
-  }
-  .column__variant_three {
-    grid-template-rows: 1fr calc(60% - 2rem);
-  }
-
   img {
     width: 100%;
     height: 100%;
@@ -54,27 +41,47 @@ const CollageStyled = styled.div`
   }
 
   @media (${(props) => props.theme.main.breakpoints.min.sm}) {
-    max-height: 40rem;
-
-    .gallery__column {
-      width: 45%;
-    }
   }
 
   @media (${(props) => props.theme.main.breakpoints.min.md}) {
+    .column__variant_one {
+      grid-template-rows: 1fr calc(40% - 1.2rem) 1fr;
+    }
+    .column__variant_two {
+      grid-template-rows: calc(60% - 1.2rem) 1fr;
+    }
+    .column__variant_three {
+      grid-template-rows: 1fr calc(60% - 1.2rem);
+    }
+
     .gallery__column {
-      width: 35%;
-      gap: 2rem;
+      gap: 1.2rem;
     }
     .gallery__column:not(:last-child) {
-      margin-right: 2rem;
+      margin-right: 1.2rem;
     }
   }
 
   @media (${(props) => props.theme.main.breakpoints.min.lg}) {
-    .gallery__column {
-      width: 25%;
+    .column__variant_one {
+      grid-template-rows: 1fr calc(40% - 1.5rem) 1fr;
     }
+    .column__variant_two {
+      grid-template-rows: calc(60% - 1.5rem) 1fr;
+    }
+    .column__variant_three {
+      grid-template-rows: 1fr calc(60% - 1.5rem);
+    }
+  }
+
+  .column__variant_one {
+    grid-template-rows: 1fr calc(40% - 1rem) 1fr;
+  }
+  .column__variant_two {
+    grid-template-rows: calc(60% - 1rem) 1fr;
+  }
+  .column__variant_three {
+    grid-template-rows: 1fr calc(60% - 1rem);
   }
 `;
 
@@ -110,11 +117,10 @@ const Collage = () => {
 
       <div className="transition-all gallery__column column__variant_three">
         <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1709819712/i6qejvynniylisl7pa7s.jpg" />
-        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710953804/vbpnv8i9pkw7uaozv4pz.jpg" /> 
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710953804/vbpnv8i9pkw7uaozv4pz.jpg" />
       </div>
 
       <div className="transition-all gallery__column column__variant_one">
-      
         <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710955966/fknxfujt1evyslyb9mcz.png" />
         <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710956605/alp06uxfwwf4yfz8xmyt.png" />
         <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710956586/xws6cmoegtirri1dxj0b.png" />

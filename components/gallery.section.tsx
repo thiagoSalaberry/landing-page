@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Collage from "./collage.component";
+import styled from 'styled-components';
+import Collage from './collage.component';
 
 const GalleryStyled = styled.section`
   height: 100vh;
@@ -9,7 +9,7 @@ const GalleryStyled = styled.section`
   align-items: center;
   justify-content: center;
   gap: 30px;
-  padding: 0 100px;
+  padding: 0 2rem;
   .gallery__info {
     margin: 0 auto;
     margin-bottom: 3rem;
@@ -22,12 +22,12 @@ const GalleryStyled = styled.section`
     }
 
     .info__quote {
-      font-family: "Playfair";
+      font-family: 'Playfair';
       font-style: italic;
       letter-spacing: 1px;
     }
   }
-  color: rgb(15,15,15);
+  color: rgb(15, 15, 15);
 `;
 
 const GallerySection = () => {
