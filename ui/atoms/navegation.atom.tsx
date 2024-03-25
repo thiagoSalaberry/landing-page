@@ -1,18 +1,16 @@
-import Link from "next/link";
-import { useState } from "react";
-import styled from "styled-components";
+import Link from 'next/link';
+import { useState } from 'react';
+import styled from 'styled-components';
 
 const LinkStyled = styled(Link)`
   cursor: pointer;
   position: relative;
   display: inline-block;
-  color: rgb(15,15,15);
-  color: #fff;
   .black {
-    color: rgb(15,15,15);
+    color: rgb(15, 15, 15);
   }
   @media (min-width: 1280px) {
-    color: rgb(15,15,15);
+    color: rgb(15, 15, 15);
   }
 
   vertical-align: middle;
@@ -51,7 +49,7 @@ const LinkStyled = styled(Link)`
 
   &::after,
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: calc(50% + 16px);
 
@@ -74,25 +72,25 @@ const LinkStyled = styled(Link)`
     transition: all 0.3s ease-in-out;
   }
   .tooltip__triangle {
-      width: 10px;
-      height: 10px;
-      background: rgba(255, 255, 255, .3);
-      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
   .tooltip__advise {
-      background: none;
-      border: solid 1px rgb(255,255,255);
-      padding: 0px 5px;
-      border-radius: 5px;
-      color: white;
-      color: rgba(255, 255, 255, 1);
-      font-size: 12px;
-    }
-    @media (min-width: 1280px) {
-      .tooltip__advise {
-        background: var(--white);
-        border: solid 1px rgb(15,15,15);
-        color: rgba(15, 15, 15, 1);
+    background: none;
+    border: solid 1px rgb(255, 255, 255);
+    padding: 0px 5px;
+    border-radius: 5px;
+    color: white;
+    color: rgba(255, 255, 255, 1);
+    font-size: 12px;
+  }
+  @media (min-width: 1280px) {
+    .tooltip__advise {
+      background: var(--white);
+      border: solid 1px rgb(15, 15, 15);
+      color: rgba(15, 15, 15, 1);
     }
   }
   .tooltip__container.visible {
@@ -106,13 +104,13 @@ const LinkStyled = styled(Link)`
 
 interface NavegationProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 
-const Navegation: React.FC<NavegationProps> = ({ children, className = "", color = "", href = "", onClick, ...props }) => {
+const Navegation: React.FC<NavegationProps> = ({ children, className = '', color = '', href = '', onClick, ...props }) => {
   const [visible, setVisible] = useState(false);
   return (
-    <LinkStyled href={href} onMouseEnter={()=>setVisible(true)} onMouseLeave={()=>setVisible(false)} className={className}>
-      <span className={`${color ? color : "black"}`}>{children}</span>
-      {children != "SHOP" ? null : (
-        <div className={`${!visible ? "tooltip__container" : "tooltip__container visible"}`}>
+    <LinkStyled href={href} onMouseEnter={() => setVisible(true)} onMouseLeave={() => setVisible(false)} className={className} style={{ color }}>
+      <span>{children}</span>
+      {children != 'SHOP' ? null : (
+        <div className={`${!visible ? 'tooltip__container' : 'tooltip__container visible'}`}>
           {/* <div className="tooltip__triangle"></div> */}
           <p className="tooltip__advise">PROXIMAMENTE</p>
         </div>

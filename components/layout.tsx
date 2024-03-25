@@ -1,20 +1,12 @@
-import styled from "styled-components";
-import { Header } from "./header";
-import { Footer } from "./footer";
-
-const LayoutStyled = styled.div`
-  main {
-    max-width: 1536px;
-    margin: 0 auto;
-  }
-`;
+import { Header } from './header';
+import { Footer } from './footer';
 
 export const Layout: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children }) => {
   return (
-    <LayoutStyled>
+    <div>
       <Header />
-      <main>{children}</main>
+      <>{children}</>
       <Footer />
-    </LayoutStyled>
+    </div>
   );
 };
