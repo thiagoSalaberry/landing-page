@@ -1,9 +1,12 @@
-import { useRef } from "react";
-import { useGesture } from "react-use-gesture";
-import styled from "styled-components";
+import { useRef } from 'react';
+import { useGesture } from 'react-use-gesture';
+import styled from 'styled-components';
 
 const CollageStyled = styled.div`
   display: flex;
+  @media (min-width: 1280px) {
+    justify-content: center;
+  }
   overflow-x: scroll;
   scrollbar-width: none;
 
@@ -12,12 +15,11 @@ const CollageStyled = styled.div`
   user-select: none;
 
   margin: 0 auto;
-  height: 100%;
-  @media (min-width: 1280px) {
-    height: 100vh;
-    padding: 0;
-  }
-  /* max-height: 30rem; */
+  /* height: 100vh;
+  max-height: 30rem; */
+
+  width: 100%;
+
   .gallery__column:not(:last-child) {
     margin-right: 1rem;
   }
@@ -31,16 +33,6 @@ const CollageStyled = styled.div`
     border-radius: 1rem;
   }
 
-  .column__variant_one {
-    grid-template-rows: 1fr calc(40% - 2rem) 1fr;
-  }
-  .column__variant_two {
-    grid-template-rows: calc(60% - 2rem) 1fr;
-  }
-  .column__variant_three {
-    grid-template-rows: 1fr calc(60% - 2rem);
-  }
-
   img {
     width: 100%;
     height: 100%;
@@ -52,27 +44,47 @@ const CollageStyled = styled.div`
   }
 
   @media (${(props) => props.theme.main.breakpoints.min.sm}) {
-    max-height: 40rem;
-
-    .gallery__column {
-      width: 45%;
-    }
   }
 
   @media (${(props) => props.theme.main.breakpoints.min.md}) {
+    .column__variant_one {
+      grid-template-rows: 1fr calc(40% - 1.2rem) 1fr;
+    }
+    .column__variant_two {
+      grid-template-rows: calc(60% - 1.2rem) 1fr;
+    }
+    .column__variant_three {
+      grid-template-rows: 1fr calc(60% - 1.2rem);
+    }
+
     .gallery__column {
-      width: 35%;
-      gap: 2rem;
+      gap: 1.2rem;
     }
     .gallery__column:not(:last-child) {
-      margin-right: 2rem;
+      margin-right: 1.2rem;
     }
   }
 
   @media (${(props) => props.theme.main.breakpoints.min.lg}) {
-    .gallery__column {
-      width: 25%;
+    .column__variant_one {
+      grid-template-rows: 1fr calc(40% - 1.5rem) 1fr;
     }
+    .column__variant_two {
+      grid-template-rows: calc(60% - 1.5rem) 1fr;
+    }
+    .column__variant_three {
+      grid-template-rows: 1fr calc(60% - 1.5rem);
+    }
+  }
+
+  .column__variant_one {
+    grid-template-rows: 1fr calc(40% - 1rem) 1fr;
+  }
+  .column__variant_two {
+    grid-template-rows: calc(60% - 1rem) 1fr;
+  }
+  .column__variant_three {
+    grid-template-rows: 1fr calc(60% - 1rem);
   }
 `;
 
@@ -108,11 +120,10 @@ const Collage = () => {
 
       <div className="transition-all gallery__column column__variant_three">
         <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1709819712/i6qejvynniylisl7pa7s.jpg" />
-        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710953804/vbpnv8i9pkw7uaozv4pz.jpg" /> 
+        <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710953804/vbpnv8i9pkw7uaozv4pz.jpg" />
       </div>
 
       <div className="transition-all gallery__column column__variant_one">
-      
         <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710955966/fknxfujt1evyslyb9mcz.png" />
         <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710956605/alp06uxfwwf4yfz8xmyt.png" />
         <img src="https://res.cloudinary.com/ddoaqw2yz/image/upload/v1710956586/xws6cmoegtirri1dxj0b.png" />

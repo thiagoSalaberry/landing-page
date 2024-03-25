@@ -122,12 +122,12 @@ export const Footer = () => {
           <div className="dev-container">
             <p className="dev-name">Thiago Salaberry</p>
             <Link className="link" href={"https://github.com/thiagoSalaberry"} target="_blank"><Github color="black" size={28}/></Link>
-            <Link className="link" href={"https://www.google.com/maps/place/Avellaneda,+Provincia+de+Buenos+Aires/@-34.6618832,-58.3719789,16z/data=!4m6!3m5!1s0x95a3335230bd052b:0x9d632a18eea90a31!8m2!3d-34.6610756!4d-58.3669739!16zL20vMDM2eWJx?entry=ttu"} target="_blank"><Linkedin color="black" size={28}/></Link>
+            <Link className="link" href={"https://www.linkedin.com/in/thiago-salaberry/"} target="_blank"><Linkedin color="black" size={28}/></Link>
           </div>
           <div className="dev-container">
             <p className="dev-name">Leonardo Fontán</p>
-            <Link className="link" href={"https://www.linkedin.com/in/leonardo-fontan/"} target="_blank"><Github color="black" size={28}/></Link>
-            <Link className="link" href={"https://www.google.com/maps/place/Avellaneda,+Provincia+de+Buenos+Aires/@-34.6618832,-58.3719789,16z/data=!4m6!3m5!1s0x95a3335230bd052b:0x9d632a18eea90a31!8m2!3d-34.6610756!4d-58.3669739!16zL20vMDM2eWJx?entry=ttu"} target="_blank"><Linkedin color="black" size={28}/></Link>
+            <Link className="link" href={"https://github.com/Lio-n"} target="_blank"><Github color="black" size={28}/></Link>
+            <Link className="link" href={"https://www.linkedin.com/in/leonardo-fontan/"} target="_blank"><Linkedin color="black" size={28}/></Link>
           </div>
         </div>
       </div>
