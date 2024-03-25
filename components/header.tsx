@@ -38,9 +38,9 @@ export const Header = () => {
   return (
     <HeaderStyled className="transition-all">
       <nav className="header__navegation">
-        <Navegation>SHOP</Navegation>
+        <Navegation color="white">SHOP</Navegation>
         <Logo size={40}/>
-        <Navegation href="#gallery-section">GALERÍA</Navegation>
+        <Navegation href="#gallery-section" color="white">GALERÍA</Navegation>
       </nav>
     </HeaderStyled>
   );

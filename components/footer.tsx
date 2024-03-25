@@ -94,6 +94,7 @@ const FooterStyled = styled.footer`
     }
       .dev-container:last-child {
       grid-row: 2;
+      grid-column: 2;
     }
   }
 `;
@@ -105,10 +106,10 @@ export const Footer = () => {
         <Image src={LogoIcon} alt={"#section_home"} />
 
         <div className="footer__sections">
-          <Navegation href="#home-section">Home</Navegation>
-          <Navegation href="#services-section">Servicios</Navegation>
-          <Navegation href="#gallery-section">Galería</Navegation>
-          <Navegation href="#form-section">Contacto</Navegation>
+          <Navegation href="#home-section" color="black">Home</Navegation>
+          <Navegation href="#services-section" color="black">Servicios</Navegation>
+          <Navegation href="#gallery-section" color="black">Galería</Navegation>
+          <Navegation href="#form-section" color="black">Contacto</Navegation>
         </div>
 
         <div className="links-container">

@@ -8,6 +8,9 @@ const LinkStyled = styled(Link)`
   display: inline-block;
   color: rgb(15,15,15);
   color: #fff;
+  .black {
+    color: rgb(15,15,15);
+  }
   @media (min-width: 1280px) {
     color: rgb(15,15,15);
   }
@@ -103,11 +106,11 @@ const LinkStyled = styled(Link)`
 
 interface NavegationProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 
-const Navegation: React.FC<NavegationProps> = ({ children, className = "", href = "", onClick, ...props }) => {
+const Navegation: React.FC<NavegationProps> = ({ children, className = "", color = "", href = "", onClick, ...props }) => {
   const [visible, setVisible] = useState(false);
   return (
     <LinkStyled href={href} onMouseEnter={()=>setVisible(true)} onMouseLeave={()=>setVisible(false)} className={className}>
-      <span>{children}</span>
+      <span className={`${color ? color : "black"}`}>{children}</span>
       {children != "SHOP" ? null : (
         <div className={`${!visible ? "tooltip__container" : "tooltip__container visible"}`}>
           {/* <div className="tooltip__triangle"></div> */}
